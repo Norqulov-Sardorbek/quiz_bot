@@ -391,7 +391,9 @@ async def finish_quiz_private(chat_id):
     await bot.send_message(chat_id, text,reply_markup=restart_quiz_keyboard(quiz.share_code))
 
     should_update = False
-    if correct > leader_row.correct_answers:
+    if not leader_row:
+        should_update = True
+    elif correct > leader_row.correct_answers:
         should_update = True
     elif correct == leader_row.correct_answers and spent < leader_row.total_time:
         should_update = True
