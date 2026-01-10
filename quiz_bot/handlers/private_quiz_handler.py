@@ -7,7 +7,7 @@ from quiz_bot.dispatcher import dp
 from quiz_bot.dispatcher import bot
 from quiz_bot.buttons.inline import *
 from quiz_bot.models import CustomUser, QuizAnswers,Quizes
-from quiz_bot.state import active_quiz, quiz_sessions, deadline_tasks, poll_chat_map, poll_correct_map, quiz_correct, quiz_answered, quiz_start_time, quiz_scores
+from quiz_bot.state import active_quiz, quiz_sessions, deadline_tasks, poll_chat_map, poll_correct_map, quiz_correct, quiz_answered, quiz_start_time, quiz_scores, ready_users
 
 
 
@@ -418,6 +418,8 @@ def cleanup_chat(chat_id):
     quiz_answered.pop(chat_id, None)
     quiz_correct.pop(chat_id, None)
     quiz_start_time.pop(chat_id, None)
+    ready_users.pop(chat_id, None)
+    quiz_scores.pop(chat_id, None)
     poll_chat_map_copy = poll_chat_map.copy()
     
     for poll_id, c_id in poll_chat_map_copy.items():

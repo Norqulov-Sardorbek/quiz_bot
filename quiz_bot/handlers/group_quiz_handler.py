@@ -8,7 +8,7 @@ from aiogram.filters import Command
 from quiz_bot.buttons.inline import *
 from aiogram.types import InlineQuery,Message
 from quiz_bot.models import CustomUser,Quizes,ReadyCount
-from quiz_bot.handlers.private_quiz_handler import finish_quiz_private
+from quiz_bot.handlers.private_quiz_handler import finish_quiz_private,cleanup_chat
 from quiz_bot.state import active_quiz, quiz_sessions, deadline_tasks, poll_chat_map, poll_correct_map, quiz_scores, ready_users
 
 
@@ -411,18 +411,7 @@ async def finish_quiz(chat_id):
 
 
 
-def cleanup_chat(chat_id):
-    active_quiz.pop(chat_id, None)
-    quiz_sessions.pop(chat_id, None)
-    quiz_scores.pop(chat_id, None)
-    ready_users.pop((chat_id), None)
-    
- 
 
-    task = deadline_tasks.pop(chat_id, None)
-    if task:
-        task.cancel()
-    
 
 @dp.inline_query()
 async def inline_quiz_handler(inline_query: InlineQuery):
