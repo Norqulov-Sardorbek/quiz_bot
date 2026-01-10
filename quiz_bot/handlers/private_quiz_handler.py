@@ -160,7 +160,6 @@ async def send_question_bg(chat_id):
         return
 
     poll_id = msg.poll.id
-    print(f"[POLL ID] chat_id={chat_id} poll_id={poll_id}")
     poll_chat_map[poll_id] = chat_id
     poll_correct_map[poll_id] = new_correct
 
@@ -209,35 +208,29 @@ async def send_poll_until_ok(
 
 
 async def question_deadline(chat_id, seconds):
-    print("entered1")
     await asyncio.sleep(seconds)
 
     session = quiz_sessions.get(chat_id)
     if not session:
         return
-    print("entered2")
 
     if session.get("paused"):
         return
-    print("entered3")
+    
 
     
     if not session.get("active_answered", False):
         session["no_answer_streak"] = session.get("no_answer_streak", 0) + 1
-        print("entered4")
     else:
         session["no_answer_streak"] = 0
-        print("entered5")
     if session["no_answer_streak"] >= 2:
         session["paused"] = True
-        print("entered6")
         await bot.send_message(
             chat_id,
             "⏸ Quiz pauza qilindi.\n\n",
             reply_markup=resume_private_keyboard()
         )
         return
-    print("entered7")
     await send_question_bg(chat_id)
 
 @dp.callback_query(F.data == "quiz_resume_private")
@@ -415,7 +408,6 @@ async def finish_quiz_private(chat_id):
  
 
 def cleanup_chat(chat_id):
-    print(f"[CLEANUP] chat_id={chat_id}")
     active_quiz.pop(chat_id, None)
     quiz_sessions.pop(chat_id, None)
     quiz_answered.pop(chat_id, None)
