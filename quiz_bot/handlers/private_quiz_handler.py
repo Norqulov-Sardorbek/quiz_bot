@@ -124,7 +124,6 @@ async def send_question_bg(chat_id):
 
     if index >= len(questions):
         await finish_quiz_private(chat_id)
-        cleanup_chat(chat_id)
         return
 
     
@@ -408,11 +407,13 @@ async def finish_quiz_private(chat_id):
                 "total_time": spent
             }
         )
+    cleanup_chat(chat_id)
 
     
  
 
 def cleanup_chat(chat_id):
+    print(f"[CLEANUP] chat_id={chat_id}")
     active_quiz.pop(chat_id, None)
     quiz_sessions.pop(chat_id, None)
     quiz_answered.pop(chat_id, None)

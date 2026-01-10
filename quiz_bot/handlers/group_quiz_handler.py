@@ -49,7 +49,7 @@ async def stop_quiz(chat_id: int, chat_type: str,user_id: int = None):
     else:
         await finish_quiz_private(chat_id)
 
-    cleanup_chat(chat_id)
+    
     
 
 
@@ -219,7 +219,6 @@ async def send_question_bg(chat_id):
 
     if index >= len(questions):
         await finish_quiz(chat_id)
-        cleanup_chat(chat_id)
         return
 
     q = questions[index]
@@ -408,6 +407,7 @@ async def finish_quiz(chat_id):
         quiz_id=quiz.id,
         is_ended=True
     ).delete()
+    cleanup_chat(chat_id)
 
 
 
