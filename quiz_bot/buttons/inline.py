@@ -99,6 +99,12 @@ def quiz_start_keyboard(share_code):
         ],
         [
             InlineKeyboardButton(
+                text="📤 Testni ulashish",
+                switch_inline_query=f"quiz:{share_code}"
+            )
+        ],
+        [
+            InlineKeyboardButton(
                 text="🔙 Ortga",
                 callback_data="all_quizzes"
             )

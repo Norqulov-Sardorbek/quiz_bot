@@ -50,7 +50,7 @@ async def stop_quiz(chat_id: int, chat_type: str,user_id: int = None):
         await finish_quiz_private(chat_id)
 
     
-    
+
 
 
 async def begin_quiz_in_group(chat_id: int, share_code,user_id: int):
