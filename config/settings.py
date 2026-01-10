@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-$&ydxx!v)^*qnqt-vjhp_h=a+#!vc9(!=x+)jbq@xw#^4gm6i^
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ["http://*","https://*"]
+CSRF_TRUSTED_ORIGINS = ["http://*","https://quizbot-production-e838.up.railway.app"]
 
 # Application definition
 
