@@ -148,9 +148,7 @@ async def quiz_select(callback):
 async def quiz_start_private(callback):
     await callback.answer()
     share_code = callback.data.split(":")[1]
-    await callback.message.answer(
-        "🧠 Quiz private chatda boshlandi"
-    )
+    await begin_quiz_in_private(chat_id=callback.message.chat.id, share_code=share_code)
 
 
 
