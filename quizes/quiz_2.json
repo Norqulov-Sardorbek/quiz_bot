@@ -1,0 +1,702 @@
+[
+    {
+    "question": "Startap ekotizimi asosan nimalardan iborat?",
+    "options": [
+      "Faqat startaplardan",
+      "Faqat venchur kapitalistlardan",
+      "Startaplar, investorlar, institutlar, madaniyat va siyosatdan",
+      "Zavod va omborlardan"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Sog‘lom startap ekotizimi uchun qaysi omil muhim?",
+    "options": [
+      "Qat’iy tartibga solish",
+      "Moliyaga va iste’dodga kirish imkoniyati",
+      "Yuqori soliqlar",
+      "Cheklangan raqobat"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Biznes-inkubatorlar asosan startaplarni qaysi bosqichda qo‘llab-quvvatlaydi?",
+    "options": [
+      "Yetuklik bosqichida",
+      "Dastlabki rivojlanish bosqichida",
+      "IPO bosqichida",
+      "Pasayish bosqichida"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Akseleratorlar inkubatorlardan nimasi bilan farq qiladi?",
+    "options": [
+      "Uzoq davom etishi bilan",
+      "Mentorlik bermasligi bilan",
+      "Qisqa muddatda tez o‘sishga qaratilgani bilan",
+      "Faqat yirik firmalarni qo‘llab-quvvatlashi bilan"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Akseleratorlarda qaysi xizmat keng tarqalgan?",
+    "options": [
+      "Bojxona rasmiylashtiruvi",
+      "Demo Day va investorlar oldida taqdimot",
+      "Soliq auditi",
+      "Huquqiy majburlash"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Qaysi tashkilot turi ko‘pincha universitetlar bilan bog‘liq bo‘ladi?",
+    "options": [
+      "Korporativ akselerator",
+      "Xususiy investitsiya fondi",
+      "Universitetga asoslangan inkubator",
+      "Davlat vazirligi"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Startap ekotizimlari innovatsiyani asosan qanday qo‘llab-quvvatlaydi?",
+    "options": [
+      "Firmalarni ajratish orqali",
+      "Hamkorlik va tarmoq aloqalari orqali",
+      "Qat’iy nazorat orqali",
+      "Bilim almashinuvini cheklash orqali"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Startap ekotizimida mentorlarning roli nimadan iborat?",
+    "options": [
+      "Soliq xizmatlari ko‘rsatish",
+      "Tajriba, maslahat va aloqalarni taqdim etish",
+      "Ta’sischilarni almashtirish",
+      "Kundalik faoliyatni nazorat qilish"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Muvaffaqiyatli startap ekotizimidan qanday natija kutiladi?",
+    "options": [
+      "Innovatsiyaning kamayishi",
+      "Ish o‘rinlari yaratilishi va iqtisodiy o‘sish",
+      "Bozor monopoliyasi",
+      "Byurokratiyaning oshishi"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Qaysi omil startaplarga tezroq kengayishga yordam beradi?",
+    "options": [
+      "Katta ofis maydoni",
+      "Global bozorlarga chiqish imkoniyati",
+      "Yuqori doimiy xarajatlar",
+      "Qat’iy ierarxiya"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Lean Startup yondashuvi nimani ta’kidlaydi?",
+    "options": [
+      "Batafsil uzoq muddatli rejalarni",
+      "Tajriba va tasdiqlangan o‘rganishni",
+      "Markazlashgan qaror qabul qilishni",
+      "Avval ommaviy ishlab chiqarishni"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Biznes-inkubatorning asosiy maqsadi nima?",
+    "options": [
+      "Bozorlarni tartibga solish",
+      "Dastlabki bosqichdagi startaplarni qo‘llab-quvvatlash",
+      "Yirik korporatsiyalarni moliyalashtirish",
+      "Innovatsiyani nazorat qilish"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Biznes-inkubatorlar odatda qaysi xizmatni taqdim etadi?",
+    "options": [
+      "Soliq tekshiruvi",
+      "Ish joyi va mentorlik",
+      "Bojxona rasmiylashtiruvi",
+      "Mahsulot sertifikatlash"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Biznes-inkubatorlar asosan nimaga qaratilgan?",
+    "options": [
+      "IPO jarayonlarini tezlashtirishga",
+      "Startaplarning muvaffaqiyatsizlik xavfini kamaytirishga",
+      "Bozor monopoliyalarini oshirishga",
+      "Raqobatni yo‘qotishga"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Akseleratorlar inkubatorlardan nimasi bilan farq qiladi?",
+    "options": [
+      "Mentorsiz ishlashi bilan",
+      "Belgilangan qisqa muddatda tez o‘sishga qaratilgani bilan",
+      "Faqat notijorat tashkilotlarni qo‘llab-quvvatlashi bilan",
+      "Investorlarni jalb qilmasligi bilan"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Akselerator dasturlari uchun qaysi bosqich eng mos hisoblanadi?",
+    "options": [
+      "G‘oya yaratish bosqichi",
+      "Dastlabki validatsiya bosqichi",
+      "O‘sishga tayyor startap bosqichi",
+      "Pasayish bosqichi"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Demo Day nima?",
+    "options": [
+      "Ichki audit kuni",
+      "Investorlar uchun ochiq taqdimot kuni",
+      "O‘quv seminari",
+      "Mahsulot sinov kuni"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Universitetga asoslangan inkubatorlar nima uchun muhim?",
+    "options": [
+      "Akademik ta’limni almashtirgani uchun",
+      "Ilmiy tadqiqot va talabalar g‘oyalarini tijoratlashtirgani uchun",
+      "Davlat moliyalashtirishini kamaytirgani uchun",
+      "Xususiy sektor ishtirokini cheklagani uchun"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Innovatsion infratuzilma asosan nimani qo‘llab-quvvatlaydi?",
+    "options": [
+      "An’anaviy ishlab chiqarishni",
+      "Innovatsiyalarni yaratish va tijoratlashtirishni",
+      "Import faoliyatini",
+      "Byurokratik nazoratni"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Quyidagilardan qaysi biri innovatsion infratuzilmaga kiradi?",
+    "options": [
+      "Faqat fond birjasi",
+      "Texnoparklar va ilmiy markazlar",
+      "Chakana savdo do‘konlari",
+      "Bojxona idoralari"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Texnoparklar innovatsiya rivojida qanday rol o‘ynaydi?",
+    "options": [
+      "Qoidalarni majburlaydi",
+      "Innovatsion firmalar uchun makon va xizmatlar taqdim etadi",
+      "Mehnat bozorini nazorat qiladi",
+      "Texnologiyadan foydalanishni kamaytiradi"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Innovatsion infratuzilmaning asosiy vazifasi nima?",
+    "options": [
+      "Soliq yig‘ish",
+      "Ilmiy tadqiqot va startaplarni qo‘llab-quvvatlash",
+      "Raqobatni cheklash",
+      "Riskni butunlay yo‘q qilish"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Inkubatorlar samaradorligini oshiruvchi omil qaysi?",
+    "options": [
+      "Yuqori ijara narxlari",
+      "Kuchli mentorlik va tarmoq aloqalari",
+      "Qat’iy ierarxiya",
+      "Cheklangan hamkorlik"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Korporativ inkubatorlar odatda kim tomonidan tashkil etiladi?",
+    "options": [
+      "Universitetlar",
+      "Davlat idoralari",
+      "Yirik kompaniyalar",
+      "NNTlar"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Virtual inkubatorlar nimasi bilan farq qiladi?",
+    "options": [
+      "Texnologiyasiz ishlashi bilan",
+      "Onlayn tarzda qo‘llab-quvvatlash ko‘rsatishi bilan",
+      "Faqat ishlab chiqarishga yo‘naltirilgani bilan",
+      "Mentorlik bermasligi bilan"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Samarali inkubator dasturlaridan qanday natija kutiladi?",
+    "options": [
+      "Innovatsiyaning kamayishi",
+      "Startaplarning yashab qolish darajasining oshishi",
+      "Byurokratiyaning ko‘payishi",
+      "Bandlikning pasayishi"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Innovatsion infratuzilma iqtisodiy rivojlanishga qanday hissa qo‘shadi?",
+    "options": [
+      "Startaplarni cheklash orqali",
+      "Tijoratlashtirish va ish o‘rinlari yaratishni rag‘batlantirish orqali",
+      "Importni oshirish orqali",
+      "Raqobatni kamaytirish orqali"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Akseleratorlarning innovatsion tizimdagi roli nimadan iborat?",
+    "options": [
+      "Inkubatorlarni almashtirish",
+      "Startaplarni tez o‘sishga va investitsiyaga tayyorlash",
+      "Innovatsiyani nazorat qilish",
+      "Riskni butunlay yo‘qotish"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Inkubator va akseleratorlar bilan ko‘pincha qaysi tashkilotlar hamkorlik qiladi?",
+    "options": [
+      "Bojxona organlari",
+      "Venchur kapital fondlari",
+      "Soliq inspeksiyasi",
+      "Chakana savdo tarmoqlari"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Innovatsion infratuzilma qachon eng samarali bo‘ladi?",
+    "options": [
+      "Ajratilgan holda ishlaganda",
+      "Ekotizimga integratsiyalashganda",
+      "Yuqori byurokratiya mavjud bo‘lganda",
+      "Faqat markazlashgan holda"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Inkubator va akseleratorlarning umumiy ta’siri nimada namoyon bo‘ladi?",
+    "options": [
+      "Tadbirkorlikni kamaytirishda",
+      "Innovatsion ekotizimni mustahkamlashda",
+      "Bozor qattiqligini oshirishda",
+      "Startap o‘sishini cheklashda"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Innovatsion jarayonlarni moliyalashtirishning asosiy maqsadi nima?",
+    "options": [
+      "Kundalik operatsion xarajatlarni qoplash",
+      "Faqat marketing kampaniyalarini moliyalashtirish",
+      "Innovatsiyalarni rivojlantirish va tijoratlashtirishni qo‘llab-quvvatlash",
+      "Soliq yukini kamaytirish"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Nima sababdan innovatsiyalarni moliyalashtirish yuqori riskli hisoblanadi?",
+    "options": [
+      "Chunki innovatsiyalar kafolatlangan foyda beradi",
+      "Chunki innovatsiyalar noaniqlik va uzoq qaytish davriga ega",
+      "Chunki innovatsiyalar kapital talab qilmaydi",
+      "Chunki innovatsiyalar davlat tomonidan to‘liq boshqariladi"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Bootstrapping nimani anglatadi?",
+    "options": [
+      "Bank kreditlari orqali moliyalashtirish",
+      "Venchur kapitaldan foydalanish",
+      "Shaxsiy mablag‘lar va dastlabki daromadlar hisobidan rivojlanish",
+      "Davlat subsidiyalaridan foydalanish"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Qaysi moliyalashtirish manbai odatda kapital bilan birga mentorlik ham taqdim etadi?",
+    "options": [
+      "Tijorat banklari",
+      "Angel investorlar",
+      "Davlat soliq organlari",
+      "Sug‘urta kompaniyalari"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Venchur kapital investorlar odatda nimani kutadi?",
+    "options": [
+      "Belgilangan foiz to‘lovlarini",
+      "Kafolatlangan daromadni",
+      "Yuqori o‘sish va chiqish (exit) imkoniyatlarini",
+      "Boshqaruvga aralashmaslikni"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Qaysi moliyalashtirish manbai seed bosqichi uchun eng mos?",
+    "options": [
+      "IPO moliyalashtirishi",
+      "Dastlabki investitsiya",
+      "Korporativ obligatsiyalar",
+      "Eksport kreditlari"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Kraudfanding (crowdfunding) nimaga imkon beradi?",
+    "options": [
+      "Banklardan qarz olishga",
+      "Ko‘plab shaxslardan kichik mablag‘lar yig‘ishga",
+      "Mijozlardan qochishga",
+      "Riskni butunlay yo‘q qilishga"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Qaysi turdagi kraudfanding ulush (equity) taklif qiladi?",
+    "options": [
+      "Xayriya asosidagi",
+      "Mukofot asosidagi",
+      "Ulushli kraudfanding",
+      "Ijtimoiy kraudfanding"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Davlat granti nima?",
+    "options": [
+      "Qaytarilishi shart bo‘lgan kredit",
+      "Ulush asosidagi investitsiya",
+      "Qaytarilmaydigan moliyaviy yordam",
+      "Xususiy xayriya"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Konvertatsiyalanuvchi qarz eng to‘g‘ri qanday tavsiflanadi?",
+    "options": [
+      "Shartli grant",
+      "Ulushga aylanishi mumkin bo‘lgan qarz",
+      "To‘g‘ridan-to‘g‘ri ulushli investitsiya",
+      "Soliq subsidiyasi"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Qaysi moliyalashtirish usuli garov talab qiladi va foiz bilan qaytariladi?",
+    "options": [
+      "Grant",
+      "Venchur kapital",
+      "Bank krediti",
+      "Kraudfanding"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Nima sababdan banklar dastlabki bosqichdagi startaplarni kam moliyalashtiradi?",
+    "options": [
+      "Startaplarda ortiqcha aktivlar bo‘lgani uchun",
+      "Startaplar past foiz taklif qilgani uchun",
+      "Garov va barqaror pul oqimi yetishmagani uchun",
+      "Startaplar davlatga tegishli bo‘lgani uchun"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Seed moliyalashtirish asosan nimaga sarflanadi?",
+    "options": [
+      "Ommaviy ishlab chiqarishga",
+      "Bozorni sinash va prototip yaratishga",
+      "Xalqaro kengayishga",
+      "IPOga tayyorgarlikka"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Qaysi bosqichda venchur kapital ko‘proq jalb qilinadi?",
+    "options": [
+      "G‘oya bosqichida",
+      "Seed bosqichida",
+      "O‘sish va kengayish bosqichida",
+      "Pasayish bosqichida"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Qaysi moliyaviy vosita riskni ko‘plab investorlar o‘rtasida taqsimlaydi?",
+    "options": [
+      "Bank krediti",
+      "Bitta angel investor",
+      "Kraudfanding",
+      "Ichki moliyalashtirish"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Ichki moliyalashtirishning asosiy afzalligi nimada?",
+    "options": [
+      "Nazorat yo‘qotiladi",
+      "Ulush kamaytirilmaydi",
+      "Yuqori foiz stavkalari",
+      "Investor bosimi"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Investor qaroriga eng ko‘p ta’sir qiluvchi omil qaysi?",
+    "options": [
+      "Ofis joylashuvi",
+      "Ta’sischining tashqi ko‘rinishi",
+      "Bozor salohiyati va masshtablanuvchanlik",
+      "Kompaniya logotipi"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Investorlar uchun “exit” nimani anglatadi?",
+    "options": [
+      "Biznesni yopish",
+      "Ulushni foyda bilan sotish",
+      "Soliqni oshirish",
+      "Xodimlarni qisqartirish"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "O‘zbekistonda seed moliyalashtirish va grantlarni ko‘pincha qaysi tashkilotlar taqdim etadi?",
+    "options": [
+      "INNO fondi va IT Park",
+      "Bojxona organlari",
+      "Soliq inspeksiyasi",
+      "Chakana banklar"
+    ],
+    "correct_index": 0
+  },
+  {
+    "question": "Innovatsion moliyalashtirishning samarali bo‘lishi nimaga olib keladi?",
+    "options": [
+      "Tadbirkorlikning kamayishiga",
+      "Raqobatbardoshlik va iqtisodiy o‘sishning oshishiga",
+      "Byurokratiyaning kuchayishiga",
+      "Innovatsiyaning cheklanishiga"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Intellektual mulk asosan nimani himoya qiladi?",
+    "options": [
+      "Jismoniy aktivlarni",
+      "Moliyaviy kapitalni",
+      "Aqliy va ijodiy faoliyat natijalarini",
+      "Mehnat shartnomalarini"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Qaysi turdagi intellektual mulk ixtirolarni himoya qiladi?",
+    "options": [
+      "Savdo belgisi (Trademark)",
+      "Mualliflik huquqi (Copyright)",
+      "Patent",
+      "Tijorat siri (Trade secret)"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Patent egasiga qanday huquq beradi?",
+    "options": [
+      "Doimiy egalik huquqini",
+      "Ma’lum muddat davomida eksklyuziv huquqni",
+      "Cheksiz bozorga kirish imkonini",
+      "Davlat moliyalashtirishini"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Savdo belgisi (Trademark) nimani himoya qiladi?",
+    "options": [
+      "Texnik jarayonlarni",
+      "Brend nomlari, ramzlar va logotiplarni",
+      "Dasturiy algoritmlarni",
+      "Biznes strategiyalarni"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Mualliflik huquqi (Copyright) asosan qaysi asarlarga taalluqli?",
+    "options": [
+      "Ixtirolarga",
+      "Sanoat dizaynlariga",
+      "Adabiy va badiiy asarlarga",
+      "Tijorat sirlariga"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Tijorat sirlari asosan qanday yo‘l bilan himoyalanadi?",
+    "options": [
+      "Ommaviy ro‘yxatdan o‘tkazish orqali",
+      "Patentlash orqali",
+      "Maxfiylik choralarini ko‘rish orqali",
+      "Mualliflik huquqi orqali"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Sanoat dizayni himoyasi nimaga qaratilgan?",
+    "options": [
+      "Funksional xususiyatlarga",
+      "Mahsulotning tashqi ko‘rinishiga",
+      "Ishlab chiqarish jarayonlariga",
+      "Marketing rejalarga"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Nima sababdan intellektual mulk tijoratlashtirish uchun muhim?",
+    "options": [
+      "Soliqni oshiradi",
+      "Innovatsiyani sekinlashtiradi",
+      "Raqobat ustunligini ta’minlaydi",
+      "Bozorga kirishni cheklaydi"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Xalqaro miqyosda intellektual mulkni himoyalovchi tashkilot qaysi?",
+    "options": [
+      "JST (WTO)",
+      "Xalqaro valyuta jamg‘armasi (IMF)",
+      "Jahon intellektual mulk tashkiloti (WIPO)",
+      "Iqtisodiy hamkorlik va taraqqiyot tashkiloti (OECD)"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Intellektual mulkni litsenziyalashning asosiy maqsadi nima?",
+    "options": [
+      "Innovatsiyalarni yashirish",
+      "Foydalanish huquqini to‘lov evaziga berish",
+      "Egalik huquqini bekor qilish",
+      "Tijoratlashtirishdan voz kechish"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Texnologiya transferi nimani anglatadi?",
+    "options": [
+      "Xodimlarni ko‘chirish",
+      "Uskunalarni tashish",
+      "Ilmiy tadqiqot natijalarini bozorga joriy etish",
+      "Mahsulot eksportini"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Innovatsiyani tijoratlashtirish nimani anglatadi?",
+    "options": [
+      "Patentni ro‘yxatdan o‘tkazish",
+      "Innovatsiyani bozorga yo‘naltirilgan mahsulot yoki xizmatga aylantirish",
+      "Ilmiy tadqiqot olib borish",
+      "Hisobot topshirish"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Muvaffaqiyatli tijoratlashtirishga eng ko‘p ta’sir qiluvchi omil qaysi?",
+    "options": [
+      "Ofis dizayni",
+      "Bozor talabi",
+      "Ichki ierarxiya",
+      "Kompaniya hajmi"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Startaplar nima sababdan intellektual mulkni himoyalashi kerak?",
+    "options": [
+      "Hujjatlarni ko‘paytirish uchun",
+      "Raqobatchilar tomonidan ko‘chirilishining oldini olish uchun",
+      "Bozorga chiqishni kechiktirish uchun",
+      "Moliyalashtirishdan qochish uchun"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Qaysi turdagi intellektual mulk maxfiylik saqlansa, muddatsiz amal qiladi?",
+    "options": [
+      "Patent",
+      "Savdo belgisi",
+      "Mualliflik huquqi",
+      "Tijorat siri"
+    ],
+    "correct_index": 3
+  },
+  {
+    "question": "Patent muddati tugagach nima sodir bo‘ladi?",
+    "options": [
+      "Eksklyuziv huquq saqlanib qoladi",
+      "Tijorat siriga aylanadi",
+      "Ommaviy foydalanishga o‘tadi",
+      "Avtomatik ravishda yangilanadi"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Qaysi tijoratlashtirish yo‘li mavjud kompaniyalar bilan hamkorlikni nazarda tutadi?",
+    "options": [
+      "Spin-off tashkil etish",
+      "Litsenziyalash",
+      "Faqat ichki foydalanish",
+      "Ochiq innovatsiyadan voz kechish"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Universitetlarda intellektual mulkni tijoratlashtirishni qaysi bo‘lim qo‘llab-quvvatlaydi?",
+    "options": [
+      "Soliq organi",
+      "Texnologiya transferi ofisi",
+      "Bojxona idorasi",
+      "Audit firmasi"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Intellektual mulkni samarali boshqarish nimaga olib keladi?",
+    "options": [
+      "Innovatsiyaning kamayishiga",
+      "Bozordagi mavqening mustahkamlanishiga",
+      "Byurokratiyaning oshishiga",
+      "Raqobatbardoshlikning pasayishiga"
+    ],
+    "correct_index": 1
+  }
+]

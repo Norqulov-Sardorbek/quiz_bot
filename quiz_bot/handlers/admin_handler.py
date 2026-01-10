@@ -1,0 +1,73 @@
+import json
+from aiogram.types import Message
+from quiz_bot.dispatcher import dp
+from quiz_bot.buttons.inline import *
+from quiz_bot.state import UploadQuestion
+from aiogram.fsm.context import FSMContext
+from aiogram.filters import Command,StateFilter
+from quiz_bot.models import CustomUser, QuizQuestion,Quizes
+
+@dp.message(Command("upload"),StateFilter(None))
+async def start(message: Message, state: FSMContext) -> None:
+    user = CustomUser.objects.filter(tg_id=message.from_user.id ).first()
+    if not user:
+        await message.answer(text="Siz admin emassiz! Agar Botga savol joylamoqchi bolsangiz, admin bilan bog'laning.")
+        return
+    if user and user.role != 'admin':
+        await message.answer(text="Siz admin emassiz! Agar Botga savol joylamoqchi bolsangiz, admin bilan bog'laning.")
+        return
+    await message.answer(text="Savol va javoblar uchun nom kiriting!",reply_markup=back_keyboard())
+    await state.set_state(UploadQuestion.upload_1)
+    
+@dp.message(StateFilter(UploadQuestion.upload_1))
+async def upload_quiz_title(message: Message, state: FSMContext) -> None:
+    quiz_title = message.text.strip()
+    quiz = Quizes.objects.create(title=quiz_title)
+    await state.update_data(quiz_id=quiz.id)
+    await message.answer("Endi savol va javoblar joylashgan JSON faylni yuboring.",reply_markup=back_keyboard())
+    await state.set_state(UploadQuestion.upload_2)
+
+
+@dp.message(StateFilter(UploadQuestion.upload_2))
+async def upload_question(message: Message, state: FSMContext) -> None:
+    if not message.document or not message.document.file_name.endswith(".json"):
+        await message.answer("❌ JSON fayl yuboring")
+        return
+
+    file = await message.bot.download(message.document)
+    data = await state.get_data()
+    quiz_id = data.get("quiz_id")
+
+    try:
+        data = json.load(file)
+    except Exception:
+        await message.answer("❌ JSON fayl noto‘g‘ri formatda")
+        return
+
+    questions_created = 0
+    for item in data:
+        if (
+            "question" not in item or
+            "options" not in item or
+            "correct_index" not in item
+        ):
+            print("Skipping invalid item:", item)
+            continue
+
+        if not isinstance(item["options"], list) or len(item["options"]) != 4:
+            print("Skipping item with invalid options:", item)
+            continue
+
+        QuizQuestion.objects.create(
+            quiz_id=quiz_id,
+            question=item["question"],
+            options=item["options"],
+            correct_index=item["correct_index"]
+        )
+        questions_created += 1
+
+    await message.answer(
+        text=f"✅ {questions_created} ta savol va javob muvaffaqiyatli yuklandi!",
+        reply_markup=back_keyboard()
+    )
+    await state.clear()

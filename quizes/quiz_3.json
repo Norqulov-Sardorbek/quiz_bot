@@ -1,0 +1,792 @@
+[
+  {
+    "question": "Tadbirkorlikni rivojlantirishda davlatning asosiy roli nimadan iborat?",
+    "options": [
+      "Xususiy biznesni almashtirish",
+      "Barcha firmalarni bevosita boshqarish",
+      "Qulay biznes muhitini yaratish",
+      "Raqobatni yo‘qotish"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Davlat tomonidan innovatsiyalarni qo‘llab-quvvatlash asosan nimaga qaratilgan?",
+    "options": [
+      "Byurokratiyani oshirishga",
+      "Bozor raqobatini kamaytirishga",
+      "Innovatsion faoliyat va riskni rag‘batlantirishga",
+      "Narxlarni nazorat qilishga"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Innovatsiyalarni qo‘llab-quvvatlashda davlat tomonidan ko‘p qo‘llaniladigan vosita qaysi?",
+    "options": [
+      "Ma’muriy jazolar",
+      "Grant va subsidiyalar",
+      "Import cheklovlari",
+      "Narxlarni belgilash"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Innovatsion siyosat asosan nimaga qaratilgan?",
+    "options": [
+      "Qisqa muddatli foydaga",
+      "Ilmiy izolyatsiyaga",
+      "Uzoq muddatli texnologik va iqtisodiy rivojlanishga",
+      "Bozor monopoliyasiga"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "“Triple Helix” modeli qaysi elementlardan iborat?",
+    "options": [
+      "Davlat, banklar va firmalar",
+      "Universitetlar, sanoat va davlat",
+      "Iste’molchilar, firmalar va NNTlar",
+      "Davlat, OAV va uy xo‘jaliklari"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Triple Helix modelida universitetlar qanday rolni bajaradi?",
+    "options": [
+      "Nazorat qiluvchi organ",
+      "Bilim va innovatsiyalar manbai",
+      "Soliq yig‘uvchi",
+      "Bozorni tartibga soluvchi"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Quadruple Helix modeli Triple Helix’ga yana qaysi elementni qo‘shadi?",
+    "options": [
+      "Moliyaviy institutlarni",
+      "Fuqarolik jamiyati",
+      "Harbiy sektorni",
+      "Tabiiy resurslarni"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Triple Helix modelida hamkorlik nima uchun muhim?",
+    "options": [
+      "Ta’lim sifatini pasaytirish uchun",
+      "Innovatsiya subyektlarini ajratish uchun",
+      "Innovatsiya va tijoratlashtirishni tezlashtirish uchun",
+      "Byurokratiyani oshirish uchun"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Maxsus iqtisodiy zonalar (MIZ/SEZ) asosan nima uchun tashkil etiladi?",
+    "options": [
+      "Soliqni oshirish uchun",
+      "Savdoni cheklash uchun",
+      "Investitsiyalarni jalb qilish va innovatsiyani rag‘batlantirish uchun",
+      "Mehnat bozorini nazorat qilish uchun"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Maxsus iqtisodiy zonalarda odatda qaysi imtiyozlar beriladi?",
+    "options": [
+      "Yuqori bojlar",
+      "Soliq va bojxona imtiyozlari",
+      "Import taqiqlari",
+      "Qat’iy tartibga solish"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Davlat innovatsion dasturlarining asosiy afzalligi nimada?",
+    "options": [
+      "Kafolatlangan muvaffaqiyat",
+      "Xususiy sektor bilan riskni bo‘lishish",
+      "Raqobatni yo‘qotish",
+      "Darhol foyda olish"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Davlat tomonidan qo‘llab-quvvatlanadigan innovatsion klasterlar nimaga qaratilgan?",
+    "options": [
+      "O‘xshash firmalarni geografik jihatdan jamlashga",
+      "Kompaniyalarni ajratishga",
+      "Hamkorlikni kamaytirishga",
+      "Bilim almashinuvini cheklashga"
+    ],
+    "correct_index": 0
+  },
+  {
+    "question": "Innovatsiyalarda davlat-xususiy sheriklik (DXSh/PPP) nimaga yordam beradi?",
+    "options": [
+      "Faqat davlat qarzini oshirishga",
+      "Davlat qo‘llab-quvvatlovi va xususiy sektor samaradorligini birlashtirishga",
+      "Shaffoflikni kamaytirishga",
+      "Xususiy investitsiyalarni yo‘qotishga"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Nima sababdan davlat startaplarni dastlabki bosqichlarda qo‘llab-quvvatlaydi?",
+    "options": [
+      "Ular kafolatlangan foyda beradi",
+      "Ular yuqori risk va cheklangan moliyaviy imkoniyatlarga ega",
+      "Ular bozorni egallab olgan",
+      "Ular yo‘l-yo‘riqqa muhtoj emas"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Innovatsion siyosat samaradorligi asosan nimaga bog‘liq?",
+    "options": [
+      "Qonunlar soniga",
+      "Subyektlar o‘rtasidagi muvofiqlashtirish darajasiga",
+      "Import hajmiga",
+      "Reklama xarajatlariga"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Innovatsion siyosatni ko‘pincha qaysi davlat organi amalga oshiradi?",
+    "options": [
+      "Bojxona xizmati",
+      "Innovatsiya yoki iqtisodiyot vazirligi",
+      "Sudlar",
+      "Ichki ishlar organlari"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Erkin iqtisodiy zonalar innovatsiyaga qanday hissa qo‘shadi?",
+    "options": [
+      "Ta’limni kamaytirish orqali",
+      "Texnologiya transferi va startaplarni qo‘llab-quvvatlash orqali",
+      "Xorijiy investitsiyalarni cheklash orqali",
+      "Byurokratiyani oshirish orqali"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Davlatning innovatsiyadagi bilvosita roli nimadan iborat?",
+    "options": [
+      "Mahsulot ishlab chiqarish",
+      "Huquqiy va institutsional muhit yaratish",
+      "Firmalarni boshqarish",
+      "Xususiy sektorni yo‘qotish"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Tadbirkorlar uchun normativ barqarorlik nima uchun muhim?",
+    "options": [
+      "Noaniqlikni oshiradi",
+      "Investitsiyalarni kamaytiradi",
+      "Uzoq muddatli rejalashtirish imkonini beradi",
+      "Xarajatlarni oshiradi"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Davlat tomonidan innovatsiyalarni samarali qo‘llab-quvvatlash nimaga olib keladi?",
+    "options": [
+      "Raqobatbardoshlikning pasayishiga",
+      "O‘sishning sekinlashishiga",
+      "Barqaror iqtisodiy rivojlanishga",
+      "Tadbirkorlikning kamayishiga"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Ta’lim tadbirkorlik rivoji uchun nima sababdan muhim?",
+    "options": [
+      "Biznes tajribasini almashtirgani uchun",
+      "Ijodkorlikni cheklagani uchun",
+      "Tadbirkorlik ko‘nikmalari va innovatsion fikrlashni rivojlantirgani uchun",
+      "Raqobatni kamaytirgani uchun"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Tadbirkorlik ta’limi asosan qaysi ko‘nikmalarni rivojlantirishga qaratilgan?",
+    "options": [
+      "Yodlash ko‘nikmalarini",
+      "Ma’muriy nazoratni",
+      "Imkoniyatni aniqlash va muammo yechish ko‘nikmalarini",
+      "Buxgalteriya aniqligini"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Ta’lim va tayyorlov infratuzilmasi nima?",
+    "options": [
+      "Faqat maktab binolari",
+      "Ko‘nikmalarni rivojlantirish va bilim uzatishni qo‘llab-quvvatlovchi tizim",
+      "Davlat tekshiruv organlari",
+      "Moliyaviy institutlar"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Innovatsiyaga yo‘naltirilgan ta’limda qaysi institut muhim rol o‘ynaydi?",
+    "options": [
+      "Bojxona organlari",
+      "Universitetlar va ilmiy markazlar",
+      "Soliq idoralari",
+      "Sudlar"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Innovatsion iqtisodiyotda uzluksiz ta’lim nima uchun muhim?",
+    "options": [
+      "Texnologiyalar tez o‘zgarib borishi sababli",
+      "Ta’lim sifatini pasaytirgani uchun",
+      "Ixtisoslashuvni cheklagani uchun",
+      "Tajribani almashtirgani uchun"
+    ],
+    "correct_index": 0
+  },
+  {
+    "question": "Tadbirkorlikda raqamlashtirish asosan nimani anglatadi?",
+    "options": [
+      "Qog‘oz hujjatlardan foydalanishni",
+      "Biznes jarayonlarida raqamli texnologiyalarni qo‘llashni",
+      "Texnologiyadan voz kechishni",
+      "Qo‘lda hisob yuritishni"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Qaysi texnologiya raqamli innovatsiyaning asosiy drayveri hisoblanadi?",
+    "options": [
+      "Yozuv mashinkalari",
+      "Sun’iy intellekt",
+      "Faks apparatlari",
+      "Analog kameralar"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Raqamli platformalar tadbirkorlikka qanday yordam beradi?",
+    "options": [
+      "Tranzaksiya xarajatlarini oshirish orqali",
+      "Bozorga kirishni cheklash orqali",
+      "Bozorga tez kirish va kengayish imkonini berish orqali",
+      "Mijozlar bilan aloqani kamaytirish orqali"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Industry 4.0 asosan nimaga taalluqli?",
+    "options": [
+      "An’anaviy ishlab chiqarishga",
+      "Raqamli va aqlli ishlab chiqarish texnologiyalariga",
+      "Qo‘l mehnatiga",
+      "Qishloq xo‘jaligi asboblariga"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Qaysi texnologiya avtomatlashtirish va ma’lumotlarga asoslangan qaror qabul qilishni ta’minlaydi?",
+    "options": [
+      "Qog‘oz asosidagi tizimlar",
+      "Sun’iy intellekt va Big Data",
+      "Qo‘lda hisobot yuritish",
+      "Yozuv mashinkalari"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Onlayn ta’lim platformalari tadbirkorlik ta’limini qanday qo‘llab-quvvatlaydi?",
+    "options": [
+      "Innovatsiyani almashtirish orqali",
+      "Bilimga moslashuvchan kirish imkonini berish orqali",
+      "Hamkorlikni yo‘qotish orqali",
+      "Xarajatlarni oshirish orqali"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Raqamli tadbirkorlik an’anaviy tadbirkorlikdan nimasi bilan farq qiladi?",
+    "options": [
+      "Texnologiyadan qochishi bilan",
+      "Raqamli mahsulotlar va platformalarga tayanishi bilan",
+      "Faqat mahalliy faoliyat yuritishi bilan",
+      "Innovatsiyasiz bo‘lishi bilan"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Texnologiyaga asoslangan innovatsiyani qo‘llab-quvvatlovchi eng muhim omil qaysi?",
+    "options": [
+      "O‘zgarishlarga qarshilik",
+      "Ilmiy-tadqiqot va tajriba-konstruktorlik ishlariga investitsiya",
+      "Qat’iy tartibga solish",
+      "Past malaka"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Innovatsiyada AKT (ICT)ning roli nimadan iborat?",
+    "options": [
+      "Aloqani sekinlashtirish",
+      "Axborot almashinuvi va yangi biznes modellarini yaratish",
+      "Shaffoflikni kamaytirish",
+      "Byurokratiyani oshirish"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Qaysi raqamli vosita masofaviy hamkorlik va innovatsiyani qo‘llab-quvvatlaydi?",
+    "options": [
+      "Faks",
+      "Bulutli hisoblash (Cloud computing)",
+      "Qog‘oz arxivlar",
+      "Qo‘lda yuritiladigan fayllar"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Aqlli texnologiyalar biznesga asosan qanday foyda keltiradi?",
+    "options": [
+      "Xatolarni ko‘paytiradi",
+      "Samaradorlik va qaror qabul qilishni yaxshilaydi",
+      "Mijozlarga e’tiborni kamaytiradi",
+      "Ma’lumotlardan foydalanishni cheklaydi"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Ta’limda texnologiya transferi nimani anglatadi?",
+    "options": [
+      "Uskunalarni sotishni",
+      "Ilmiy tadqiqot natijalarini amaliyotga joriy etishni",
+      "Universitetlarni yopishni",
+      "Innovatsiyani cheklashni"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Raqamli innovatsion iqtisodiyotda qaysi kompetensiya eng muhim?",
+    "options": [
+      "Qo‘l mehnati ko‘nikmalari",
+      "Raqamli va tahliliy ko‘nikmalar",
+      "Jismoniy kuch",
+      "Rutinali vazifalar"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Ta’lim va biznes hamkorligi asosan nimaga qaratilgan?",
+    "options": [
+      "Byurokratiyani oshirishga",
+      "Ko‘nikmalarni bozor ehtiyojlariga moslashtirishga",
+      "Talabalar harakatchanligini cheklashga",
+      "Innovatsiyani kamaytirishga"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Ta’lim va raqamlashtirish birgalikda nimaga olib keladi?",
+    "options": [
+      "Tadbirkorlikning kamayishiga",
+      "Innovatsion salohiyatning kuchayishiga",
+      "Ishsizlikning oshishiga",
+      "Mehnat unumdorligining pasayishiga"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Tadbirkorlikda barqarorlik (sustainability) nimani anglatadi?",
+    "options": [
+      "Qisqa muddatli foydani maksimal darajada oshirishni",
+      "Atrof-muhitga ta’sirni e’tiborsiz qoldirishni",
+      "Iqtisodiy, ijtimoiy va ekologik maqsadlar muvozanatini",
+      "Innovatsiyani kamaytirishni"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Barqaror tadbirkorlik asosan nimaga qaratilgan?",
+    "options": [
+      "Faqat atrof-muhitni muhofaza qilishga",
+      "Faqat ijtimoiy maqsadlarga",
+      "Jamiyat va biznes uchun uzoq muddatli qiymat yaratishga",
+      "Foydadan voz kechishga"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "“Triple Bottom Line” tushunchasi nimalarni o‘z ichiga oladi?",
+    "options": [
+      "Foyda, soliq va nazorat",
+      "Odamlar, sayyora va foyda",
+      "Xarajat, sifat va tezlik",
+      "O‘sish, kengayish va chiqish"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Yashil innovatsiyaning asosiy maqsadi nima?",
+    "options": [
+      "Atrof-muhit ifloslanishini oshirish",
+      "Yangi yechimlar orqali ekologik ta’sirni kamaytirish",
+      "Texnologiyani almashtirish",
+      "Ishlab chiqarishni cheklash"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Quyidagilardan qaysi biri yashil innovatsiyaga misol bo‘la oladi?",
+    "options": [
+      "Qazilma yoqilg‘ilardan foydalanish",
+      "Qayta tiklanuvchi energiya texnologiyalarini rivojlantirish",
+      "Chiqindilarni ko‘paytirish",
+      "Qo‘lda ishlab chiqarish"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Ijtimoiy tadbirkorlik eng to‘g‘ri qanday ta’riflanadi?",
+    "options": [
+      "Faqat xayriya faoliyati",
+      "Ijtimoiy muammolarni barqaror biznes orqali hal qilish",
+      "Davlat ijtimoiy dasturlari",
+      "Innovatsiyasiz faoliyat"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Ijtimoiy korxonalarning asosiy maqsadi nima?",
+    "options": [
+      "Aksiyadorlar foydasini maksimal qilish",
+      "Ijtimoiy yoki ekologik muammolarni hal etish",
+      "Bozor raqobatidan qochish",
+      "Innovatsiyani kamaytirish"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Ijtimoiy tadbirkorlik ko‘pincha qaysi sohalarga yo‘naltiriladi?",
+    "options": [
+      "Hashamatli tovarlar",
+      "Harbiy sanoat",
+      "Ta’lim va sog‘liqni saqlash",
+      "Spekulyativ moliya"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Aylanma iqtisodiyot (circular economy) nimaga asoslanadi?",
+    "options": [
+      "Chiziqli ishlab chiqarish va utilizatsiyaga",
+      "Resurslarni qayta ishlatish, qayta ishlash va chiqindilarni kamaytirishga",
+      "Iste’molni oshirishga",
+      "Bir martalik mahsulotlardan foydalanishga"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Barqaror biznes modellari nimani ta’kidlaydi?",
+    "options": [
+      "Qisqa muddatli foydani",
+      "Resurslardan samarali va mas’uliyatli foydalanishni",
+      "Bozorni to‘liq egallashni",
+      "Yuqori ifloslanishni"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Nima sababdan barqarorlik biznesning uzoq muddatli muvaffaqiyati uchun muhim?",
+    "options": [
+      "Chunki u faqat xarajatlarni oshiradi",
+      "Chunki u raqobatbardoshlikni pasaytiradi",
+      "Chunki u barqarorlik va manfaatdor tomonlar ishonchini mustahkamlaydi",
+      "Chunki u innovatsiyani yo‘q qiladi"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "ESG mezonlari nimani anglatadi?",
+    "options": [
+      "Eksport, savdo va o‘sish",
+      "Ekologik, ijtimoiy va boshqaruv omillari",
+      "Samaradorlik, tezlik va o‘sish",
+      "Energiya, ta’minot va boshqaruv"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Qaysi innovatsiya karbon chiqindilarini kamaytirishga yordam beradi?",
+    "options": [
+      "Ko‘mirga asoslangan energiya",
+      "Qayta tiklanuvchi energiya texnologiyalari",
+      "Yoqilg‘i sarfini oshirish",
+      "An’anaviy dvigatellar"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Barqaror innovatsiyalar ko‘pincha nimani talab qiladi?",
+    "options": [
+      "Qoidalarni inkor etishni",
+      "Biznes, davlat va jamiyat o‘rtasida hamkorlikni",
+      "Bozorni yakkalashni",
+      "Ta’limni kamaytirishni"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Yashil startaplar asosan qaysi yo‘nalishda faoliyat yuritadi?",
+    "options": [
+      "Tezkor moda (fast fashion)",
+      "Qayta tiklanuvchi energiya va ekologik yechimlar",
+      "Tamaki sanoati",
+      "Qurol ishlab chiqarish"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Ijtimoiy ta’sirni o‘lchash nima uchun muhim?",
+    "options": [
+      "Moliyaviy hisobotni almashtirish uchun",
+      "Ijtimoiy korxonalarning real ta’sirini ko‘rsatish uchun",
+      "Javobgarlikni kamaytirish uchun",
+      "Shaffoflikni kamaytirish uchun"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Barqaror tadbirkorlik nimaga hissa qo‘shadi?",
+    "options": [
+      "Atrof-muhitning yomonlashishiga",
+      "Qisqa muddatli monopoliyalarga",
+      "Inklyuziv va muvozanatli iqtisodiy o‘sishga",
+      "Innovatsiyaning kamayishiga"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Iste’molchilarni barqaror bizneslarni qo‘llab-quvvatlashga nima undaydi?",
+    "options": [
+      "Yuqori narxlar",
+      "Axloqiy va ekologik mas’uliyat",
+      "Muqobil variantlarning yo‘qligi",
+      "Faqat reklama"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Barqarorlikdagi innovatsiyalar ko‘pincha nimani o‘z ichiga oladi?",
+    "options": [
+      "Faqat an’anaviy texnologiyalarni",
+      "Toza texnologiyalar va yangi materiallarni",
+      "Chiqindilarni ko‘paytirishni",
+      "Resurslardan haddan tashqari foydalanishni"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Barqaror va innovatsion tadbirkorlikning yakuniy maqsadi nima?",
+    "options": [
+      "Foydani butunlay yo‘qotish",
+      "Uzoq muddatli iqtisodiy va ijtimoiy farovonlikka erishish",
+      "Raqobatni kamaytirish",
+      "O‘sishdan voz kechish"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Tadbirkorlikning iqtisodiyotdagi asosiy maqsadi nima?",
+    "options": [
+      "Raqobatni kamaytirish",
+      "Yangi biznes faoliyati orqali qiymat yaratish",
+      "Davlat institutlarini almashtirish",
+      "Riskni yo‘qotish"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Tadbirkorlik innovatsiya bilan nega chambarchas bog‘liq?",
+    "options": [
+      "Chunki u texnologik o‘zgarishlardan qochadi",
+      "Chunki yangi g‘oyalarni tijoratlashtiradi",
+      "Chunki faqat savdoga qaratilgan",
+      "Chunki faqat davlat qo‘llab-quvvatlashiga tayanadi"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Qaysi xususiyat tadbirkorni eng yaxshi tavsiflaydi?",
+    "options": [
+      "Riskdan qochish",
+      "Passiv boshqaruv",
+      "Tashabbuskorlik va imkoniyatni ko‘ra bilish",
+      "Tartibga to‘liq bo‘ysunish"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Innovatsiya ixtirodan nimasi bilan farq qiladi?",
+    "options": [
+      "Faqat nazariy bo‘lishi bilan",
+      "Bozor qiymatiga ega emasligi bilan",
+      "Amalda joriy etilishi va qiymat yaratishi bilan",
+      "Faqat laboratoriyalarda mavjud bo‘lishi bilan"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Tadbirkorlikdagi muvaffaqiyatga eng ko‘p ta’sir qiluvchi omil qaysi?",
+    "options": [
+      "Ofis hajmi",
+      "Imkoniyatni aniqlash qobiliyati",
+      "Yuqori soliqlar",
+      "Bozor monopoliyasi"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Tadbirkorlik bandlikka asosan qanday hissa qo‘shadi?",
+    "options": [
+      "Mehnat talabini kamaytirish orqali",
+      "Yangi firmalar va ish o‘rinlari yaratish orqali",
+      "Bozorga kirishni cheklash orqali",
+      "Avtomatlashtirish orqali"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Qaysi turdagi innovatsiya yangi marketing usullari bilan bog‘liq?",
+    "options": [
+      "Mahsulot innovatsiyasi",
+      "Jarayon innovatsiyasi",
+      "Marketing innovatsiyasi",
+      "Tashkiliy innovatsiya"
+    ],
+    "correct_index": 2
+  },
+  {
+    "question": "Tadbirkorlik riski nimani anglatadi?",
+    "options": [
+      "Kafolatlangan zarar",
+      "Natijalarning noaniqligi",
+      "Davlat nazorati",
+      "Bozor barqarorligi"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Innovatsion tadbirkor uchun qaysi ko‘nikma muhim?",
+    "options": [
+      "Rutinali vazifalarni bajarish",
+      "Ijodiy muammo yechish",
+      "Qoidalarga qat’iy rioya qilish",
+      "Riskni yo‘qotish"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Tadbirkorlik ta’limi talabalar uchun nimani rivojlantiradi?",
+    "options": [
+      "Nazariy yodlashni",
+      "Tadbirkorlik fikrlashi va ko‘nikmalarini",
+      "Biznes yaratishdan qochishni",
+      "Faqat imtihon topshirishni"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Innovatsion ekotizimlar tadbirkorlarni qanday qo‘llab-quvvatlaydi?",
+    "options": [
+      "Firmalarni ajratish orqali",
+      "Tarmoq, resurslar va qo‘llab-quvvatlash orqali",
+      "Hamkorlikni cheklash orqali",
+      "Byurokratiyani oshirish orqali"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Innovatsiyaning tarqalishiga eng ko‘p qaysi omil ta’sir qiladi?",
+    "options": [
+      "Bozor tomonidan qabul qilinishi",
+      "Ofis joylashuvi",
+      "Kompaniya yoshi",
+      "Faqat soliq stavkasi"
+    ],
+    "correct_index": 0
+  },
+  {
+    "question": "Tadbirkorlar raqobat ustunligini asosan qanday yaratadi?",
+    "options": [
+      "Narxlarni nazorat qilish orqali",
+      "Innovatsiya va farqlanish orqali",
+      "Bozorni yakkalash orqali",
+      "Tartibga solish orqali"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Innovatsiyani bozor muvaffaqiyati bilan bog‘lovchi element qaysi?",
+    "options": [
+      "Tijoratlashtirish",
+      "Faqat g‘oya yaratish",
+      "Faqat ilmiy tadqiqot",
+      "Tartibga solish"
+    ],
+    "correct_index": 0
+  },
+  {
+    "question": "Tadbirkorlik va innovatsiya birgalikda nimaga olib keladi?",
+    "options": [
+      "Iqtisodiy turg‘unlikka",
+      "Barqaror iqtisodiy o‘sishga",
+      "Raqobatni kamaytirishga",
+      "Mehnat unumdorligini pasaytirishga"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Qaysi muhit innovatsion tadbirkorlikni eng yaxshi qo‘llab-quvvatlaydi?",
+    "options": [
+      "Qat’iy cheklovchi tartibga solish",
+      "Qo‘llab-quvvatlovchi siyosat va moliyaga kirish imkoniyati",
+      "Cheklangan ta’lim",
+      "Yopiq bozorlar"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Tadbirkorlar ijtimoiy rivojlanishga qanday hissa qo‘shadi?",
+    "options": [
+      "Tengsizlikni oshirish orqali",
+      "Ijtimoiy muammolarni innovatsiyalar orqali hal qilish orqali",
+      "Davlat xizmatlarini yo‘qotish orqali",
+      "Mas’uliyatdan qochish orqali"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Qaysi tushuncha uzoq muddatli qiymat yaratishni ta’kidlaydi?",
+    "options": [
+      "Qisqa muddatli foydani maksimal qilish",
+      "Barqaror tadbirkorlik",
+      "Bozor monopoliyasi",
+      "Faqat xarajatlarni kamaytirish"
+    ],
+    "correct_index": 1
+  },
+  {
+    "question": "Innovatsiyalarni boshqarish asosan nimaga qaratilgan?",
+    "options": [
+      "Tasodifiy ijodkorlikka",
+      "Innovatsion jarayonlarni tizimli rejalashtirish va nazorat qilishga",
+      "Noaniqlikni butunlay yo‘qotishga",
+      "O‘zgarishlardan qochishga"
+    ],
+    "correct_index": 1
+  }
+]
