@@ -20,3 +20,4 @@ quiz_answered = {}
 quiz_start_time = {}       # chat_id -> session
 quiz_scores = {}         # chat_id -> asyncio.Task
 ready_users= {} 
+user_info = {}

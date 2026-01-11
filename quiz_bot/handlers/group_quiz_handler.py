@@ -9,7 +9,7 @@ from quiz_bot.buttons.inline import *
 from aiogram.types import InlineQuery,Message
 from quiz_bot.models import CustomUser,Quizes,ReadyCount
 from quiz_bot.handlers.private_quiz_handler import finish_quiz_private,cleanup_chat
-from quiz_bot.state import active_quiz, quiz_sessions, deadline_tasks, poll_chat_map, poll_correct_map, quiz_scores, ready_users
+from quiz_bot.state import active_quiz, quiz_sessions, deadline_tasks, poll_chat_map, poll_correct_map, quiz_scores, ready_users,user_info  
 
 
 
@@ -351,7 +351,6 @@ async def quiz_resume_callback(callback):
 
 
 
-
 async def finish_quiz(chat_id):
     scores = quiz_scores.get(chat_id, {})
     session = quiz_sessions.get(chat_id)
@@ -359,7 +358,6 @@ async def finish_quiz(chat_id):
     quiz = Quizes.objects.filter(share_code=share_code).first() if share_code else None
     quiz_title = quiz.title if quiz else "Test"
     total_questions = quiz.questions.count() if quiz else 0
-    
 
     text = (
         f"🏁 “{quiz_title}” testi yakunlandi!\n\n"
@@ -372,31 +370,56 @@ async def finish_quiz(chat_id):
         return
 
     sorted_users = sorted(scores.items(), key=lambda x: x[1], reverse=True)
-
     medals = ["🥇", "🥈", "🥉"]
 
-    for i, (uid, score) in enumerate(sorted_users):
-        user = CustomUser.objects.filter(tg_id=uid).first()
-        name = (
-            f"@{user.username}"
-            if user and user.username
-            else  str(uid)
+    uids = [uid for uid, _ in sorted_users]
+
+    existing_users = CustomUser.objects.filter(tg_id__in=uids)
+    existing_map = {u.tg_id: u for u in existing_users}
+
+    new_users = []
+    for uid in uids:
+        if uid in existing_map:
+            continue
+
+        data = user_info.get(chat_id, {}).get(uid, {})
+        new_users.append(
+            CustomUser(
+                tg_id=uid,
+                username=data.get("username", "") if data else "",
+                role="user",
+            )
         )
 
+    if new_users:
+        CustomUser.objects.bulk_create(new_users, ignore_conflicts=True)
 
+        existing_users = CustomUser.objects.filter(tg_id__in=uids)
+        existing_map = {u.tg_id: u for u in existing_users}
+
+    for i, (uid, score) in enumerate(sorted_users):
+        user = existing_map.get(uid)
+
+        name = f"@{user.username}" if user and user.username else str(uid)
 
         prefix = medals[i] if i < 3 else f"{i+1}."
         text += f"{prefix} {name} – {score}\n"
 
     text += "\n🏆 Gʻoliblarni tabriklaymiz!"
 
-    await bot.send_message(chat_id=chat_id, text=text,reply_markup=share_quiz_keyboard(share_code))
-    
-    ReadyCount.objects.filter(
+    await bot.send_message(
         chat_id=chat_id,
-        quiz_id=quiz.id,
-        is_ended=True
-    ).delete()
+        text=text,
+        reply_markup=share_quiz_keyboard(share_code),
+    )
+
+    if quiz:
+        ReadyCount.objects.filter(
+            chat_id=chat_id,
+            quiz_id=quiz.id,
+            is_ended=True
+        ).delete()
+
     cleanup_chat(chat_id)
 
 

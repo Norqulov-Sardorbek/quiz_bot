@@ -7,7 +7,7 @@ from quiz_bot.dispatcher import dp
 from quiz_bot.dispatcher import bot
 from quiz_bot.buttons.inline import *
 from quiz_bot.models import CustomUser, QuizAnswers,Quizes
-from quiz_bot.state import active_quiz, quiz_sessions, deadline_tasks, poll_chat_map, poll_correct_map, quiz_correct, quiz_answered, quiz_start_time, quiz_scores, ready_users
+from quiz_bot.state import active_quiz, quiz_sessions, deadline_tasks, poll_chat_map, poll_correct_map, quiz_correct, quiz_answered, quiz_start_time, quiz_scores, ready_users,user_info
 
 
 
@@ -255,25 +255,24 @@ async def quiz_resume_callback(callback):
 async def poll_answer_handler(poll_answer):
     poll_id = poll_answer.poll_id
     user_id = poll_answer.user.id
-    user = CustomUser.objects.filter(tg_id=user_id).first()
-    if not user:
-        CustomUser.objects.create(
-            tg_id=user_id,
-            username=poll_answer.user.username or "",
-            role='user'
-        )
     
 
     chat_id = poll_chat_map.get(poll_id)
     if not chat_id:
         return
+    if chat_id < 0:
+        chat_bucket = user_info.setdefault(chat_id, {})
+        chat_bucket[user_id] = {
+                "username": poll_answer.user.username,
+            }
 
     session = quiz_sessions.get(chat_id)
     if not session or session.get("paused"):
         return
     
     session["active_answered"] = True
-
+    if not poll_answer.option_ids:
+        return
     selected = poll_answer.option_ids[0]
     correct = poll_correct_map.get(poll_id)
     if correct is None:
