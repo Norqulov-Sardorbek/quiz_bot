@@ -351,16 +351,6 @@ async def quiz_resume_callback(callback):
 
 
 
-def format_duration(seconds: float) -> str:
-    if seconds < 60:
-        return f"{round(seconds,1)} soniya"
-
-    minutes = int(seconds // 60)
-    sec = int(seconds % 60)
-    return f"{minutes} daqiqa {sec} soniya"
-
-
-
 
 async def finish_quiz(chat_id):
     scores = quiz_scores.get(chat_id, {})

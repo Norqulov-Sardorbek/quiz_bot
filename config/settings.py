@@ -90,9 +90,11 @@ DATABASES = {
         'PASSWORD': config('DB_PASSWORD', default=''),
         'HOST': config('DB_HOST', default='localhost'),
         'PORT': config('DB_PORT', default='5432'),
+        "CONN_MAX_AGE": 0,
+        "CONN_HEALTH_CHECKS": True,
         'OPTIONS': {
             'options': f"-c search_path={config('DB_SCHEMA', default='public')}"
-        }
+        },
     }
 }
 
