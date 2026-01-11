@@ -414,6 +414,7 @@ def cleanup_chat(chat_id):
     quiz_start_time.pop(chat_id, None)
     ready_users.pop(chat_id, None)
     quiz_scores.pop(chat_id, None)
+    user_info.pop(chat_id, None)
     poll_chat_map_copy = poll_chat_map.copy()
     
     for poll_id, c_id in poll_chat_map_copy.items():
