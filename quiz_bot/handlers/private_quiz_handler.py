@@ -126,6 +126,7 @@ async def send_question_bg(chat_id):
         await finish_quiz_private(chat_id)
         return
 
+
     
     q = questions[index]     
     total = len(session["questions"])
