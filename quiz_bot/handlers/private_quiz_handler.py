@@ -133,7 +133,7 @@ async def send_question_bg(chat_id):
     session["active_answered"] = False
     paired = list(enumerate(q.options))
     random.shuffle(paired)
-    new_options = [opt for _, opt in paired]
+    new_options = [opt[:100] for _, opt in paired]
     new_correct = next(i for i, (old_i, _) in enumerate(paired) if old_i == q.correct_index)
 
     session["active_q_index"] = index

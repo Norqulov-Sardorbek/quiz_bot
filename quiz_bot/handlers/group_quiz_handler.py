@@ -227,7 +227,7 @@ async def send_question_bg(chat_id):
 
     paired = list(enumerate(q.options))
     random.shuffle(paired)
-    new_options = [opt for _, opt in paired]
+    new_options = [opt[:100] for _, opt in paired]
     new_correct = [i for i, (old_i, _) in enumerate(paired) if old_i == q.correct_index][0]
     
     msg = await send_poll_until_ok(
