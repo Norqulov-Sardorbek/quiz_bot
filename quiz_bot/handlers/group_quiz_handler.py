@@ -202,8 +202,6 @@ async def start_quiz(chat_id, share_code):
 
     await send_question_bg(chat_id)
 
-
-
 async def send_question_bg(chat_id):
     session = quiz_sessions.get(chat_id)
     if not session:
@@ -213,39 +211,75 @@ async def send_question_bg(chat_id):
         return
 
     index = session["index"]
-    total = len(session["questions"])
     questions = session["questions"]
-
+    total = len(questions)
 
     if index >= len(questions):
         await finish_quiz(chat_id)
         return
 
     q = questions[index]
+
+    if not q.options or len(q.options) < 2:
+        print("INVALID OPTIONS:", q.options, "question=", q.question)
+        session["index"] += 1
+        await send_question_bg(chat_id)
+        return
+
+    if not (0 <= q.correct_index < len(q.options)):
+        print(
+            "INVALID correct_index:",
+            q.correct_index,
+            "options_len=", len(q.options),
+            "question=", q.question
+        )
+        q.correct_index = 0
+
     poll_question = f"[{index+1}/{total}] {q.question}"
     session["active_answered"] = False
 
     paired = list(enumerate(q.options))
     random.shuffle(paired)
-    new_options = [opt[:100] for _, opt in paired]
 
-    correct_text = q.options[q.correct_index][:100]
+    new_options = []
+    used = set()
 
-    new_correct = next(
-    i for i, opt in enumerate(new_options)
-    if opt == correct_text
-)
+    for _, opt in paired:
+        text = (opt or "").strip()[:100]
+        if not text:
+            text = "—"
+        while text in used:
+            text = (text[:99] + " ") if len(text) >= 99 else (text + " ")
+        used.add(text)
+        new_options.append(text)
 
-    
+    correct_text = (q.options[q.correct_index] or "").strip()[:100]
+
+    new_correct = None
+    for i, (old_i, opt) in enumerate(paired):
+        if old_i == q.correct_index:
+            new_correct = i
+            break
+
+    if new_correct is None:
+        for i, opt in enumerate(new_options):
+            if opt == correct_text:
+                new_correct = i
+                break
+
+    if new_correct is None:
+        new_correct = 0
+
     msg = await send_poll_until_ok(
-    chat_id=chat_id,
-    question=poll_question,
-    options=new_options,
-    correct_option_id=new_correct,
-    deadline=session["deadline"],
-    retries=10,
-    timeout=10
-)
+        chat_id=chat_id,
+        question=poll_question,
+        options=new_options,
+        correct_option_id=new_correct,
+        deadline=session["deadline"],
+        retries=10,
+        timeout=10
+    )
+
     if not msg:
         session["paused"] = True
         await bot.send_message(
@@ -258,18 +292,15 @@ async def send_question_bg(chat_id):
 
     poll_id = msg.poll.id
     print(f"[POLL ID] chat_id={chat_id} poll_id={poll_id}")
+
     poll_chat_map[poll_id] = chat_id
     poll_correct_map[poll_id] = new_correct
 
-    # ⏱ deadline
     deadline_tasks[chat_id] = asyncio.create_task(
         question_deadline(chat_id, session["deadline"])
     )
 
     session["index"] += 1
-
-
-
 
 
 async def send_poll_until_ok(
