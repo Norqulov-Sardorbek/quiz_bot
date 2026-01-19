@@ -135,7 +135,13 @@ async def send_question_bg(chat_id):
     paired = list(enumerate(q.options))
     random.shuffle(paired)
     new_options = [opt[:100] for _, opt in paired]
-    new_correct = next(i for i, (old_i, _) in enumerate(paired) if old_i == q.correct_index)
+
+    correct_text = q.options[q.correct_index][:100]
+
+    new_correct = next(
+    i for i, opt in enumerate(new_options)
+    if opt == correct_text
+)
 
     session["active_q_index"] = index
     session["active_correct"] = new_correct
