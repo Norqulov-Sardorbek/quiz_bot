@@ -2,6 +2,7 @@ from operator import index
 import time
 import random
 import asyncio
+import html as html_module
 from aiogram import F, html
 from quiz_bot.dispatcher import dp
 from quiz_bot.dispatcher import bot
@@ -215,8 +216,8 @@ async def send_poll_until_ok(
 ):
     for attempt in range(1, retries + 1):
         try:
-            question_safe = html.escape(question)
-            options_safe = [html.escape(o) for o in options]
+            question_safe = html_module.escape(question)
+            options_safe = [html_module.escape(o) for o in options]
             msg = await asyncio.wait_for(
                 bot.send_poll(
                     chat_id=chat_id,
