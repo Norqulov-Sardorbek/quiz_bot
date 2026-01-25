@@ -54,8 +54,7 @@ async def upload_question(message: Message, state: FSMContext) -> None:
             print("Skipping invalid item:", item)
             continue
 
-        if not isinstance(item["options"], list) or len(item["options"]) != 4:
-            print("Skipping item with invalid options:", item)
+        if not isinstance(item["options"], list) :
             continue
 
         QuizQuestion.objects.create(
