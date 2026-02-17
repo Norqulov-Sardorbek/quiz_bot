@@ -3,7 +3,7 @@ version: "3.9"
 services:
   django:
     build: .
-    container_name: zakovat_django
+    container_name: quiz_django
     command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/app
@@ -17,7 +17,7 @@ services:
 
   bot:
     build: .
-    container_name: zakovat_bot
+    container_name: quiz_bot
     command: python manage.py bot
     volumes:
       - .:/app
