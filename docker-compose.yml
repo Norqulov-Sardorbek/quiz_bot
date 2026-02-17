@@ -12,11 +12,13 @@ services:
     ports:
       - "8000:8000"
     restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   bot:
     build: .
     container_name: zakovat_bot
-    command: sh -c "python manage.py migrate && python manage.py bot"
+    command: python manage.py bot
     volumes:
       - .:/app
     env_file:
@@ -24,3 +26,5 @@ services:
     depends_on:
       - django
     restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
