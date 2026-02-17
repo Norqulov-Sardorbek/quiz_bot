@@ -1,21 +1,26 @@
+version: "3.9"
+
 services:
   django:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    container_name: zakovat_django
+    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/app
-      - ./static:/app/staticfiles:/staticfiles
     env_file:
       - .env
-    expose:
-      - "8000"
+    ports:
+      - "8000:8000"
+    restart: always
 
   bot:
     build: .
-    command: python manage.py bot
+    container_name: zakovat_bot
+    command: sh -c "python manage.py migrate && python manage.py bot"
     volumes:
       - .:/app
     env_file:
       - .env
     depends_on:
       - django
+    restart: always
