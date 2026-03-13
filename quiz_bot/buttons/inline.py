@@ -9,7 +9,12 @@ BOT_USERNAME = config("BOT_USERNAME")
 def main_menu_keyboard() -> InlineKeyboardMarkup:
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [
-            InlineKeyboardButton(text="Barcha viktorinalar", callback_data="all_quizzes"),
+            InlineKeyboardButton(text=" 📋 Quiz yaratish", callback_data="quiz_create"),
+            InlineKeyboardButton(text=" 🔁 Auto quiz yaratish", callback_data="quiz_autocreate"),
+        ],
+        [
+            InlineKeyboardButton(text=" 📚 Mening quizlarim", callback_data="quiz_my"),
+            InlineKeyboardButton(text=" ❓ Yordam", callback_data="quiz_help"),
         ],
         
     ])

@@ -44,7 +44,25 @@ async def start(message: Message, state: FSMContext) -> None:
     if user.role == 'admin':
         await message.answer(text="Admin bosh menyu",reply_markup=admin_keyboard())
     else:
-        await message.answer(text="Asosiy menyu",reply_markup=main_menu_keyboard())
+        await message.answer(text=
+f"""🎯 Quiz Avto Botga xush kelibsiz, {message.from_user.first_name}
+
+━━━━━━━━━━━━━━━━━━━━
+
+🚀 Imkoniyatlar:
+├ 📝 Fayldan avtomatik test yaratish (DOCX, TXT, PDF)
+├ ✏️ Qo'lda test yaratish
+├ 👥 Guruhda test o'tkazish
+├ 📊 Natijalar va statistika
+└ 🏆 Reyting tizimi
+
+━━━━━━━━━━━━━━━━━━━━
+
+📌 Boshlash uchun:
+• Avtomatik quiz tuzish — DOCX, TXT, PDF fayldan
+• Quiz tuzish — qo'lda yaratish
+• Mening quizlarim — yaratilgan testlar""",
+reply_markup=main_menu_keyboard())
         
 
    

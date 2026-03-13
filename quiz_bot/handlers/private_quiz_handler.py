@@ -3,7 +3,7 @@ import time
 import random
 import asyncio
 import html as html_module
-from aiogram import F, html
+from aiogram import F
 from quiz_bot.dispatcher import dp
 from quiz_bot.dispatcher import bot
 from quiz_bot.buttons.inline import *
