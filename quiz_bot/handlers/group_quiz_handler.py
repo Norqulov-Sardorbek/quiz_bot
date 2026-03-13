@@ -1,8 +1,8 @@
 import time
 import random
 import asyncio
-import html as html_module
 from aiogram import F
+import html as html_module
 from quiz_bot.dispatcher import dp
 from quiz_bot.dispatcher import bot
 from aiogram.filters import Command

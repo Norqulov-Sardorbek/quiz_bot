@@ -1,8 +1,11 @@
+import asyncio
 import json
-from aiogram.types import Message
-from quiz_bot.dispatcher import dp
+from aiogram.types import Message,CallbackQuery
+from aiogram import F
+from quiz_bot.dispatcher import dp,bot
 from quiz_bot.buttons.inline import *
-from quiz_bot.state import UploadQuestion
+from aiogram.exceptions import TelegramForbiddenError, TelegramRetryAfter
+from quiz_bot.state import UploadQuestion,Register
 from aiogram.fsm.context import FSMContext
 from aiogram.filters import Command,StateFilter
 from quiz_bot.models import CustomUser, QuizQuestion,Quizes
@@ -70,3 +73,68 @@ async def upload_question(message: Message, state: FSMContext) -> None:
         reply_markup=back_keyboard()
     )
     await state.clear()
+
+
+async def send_safe_message(chat_id: int, text: str, **kwargs) -> Message | None:
+    kwargs['parse_mode'] = kwargs.get('parse_mode', 'HTML')
+    try:
+        return await bot.send_message(chat_id=chat_id, text=text, **kwargs)
+    except Exception:
+        return None
+    
+
+    
+@dp.callback_query(F.data == "broadcast_message")
+async def broadcast_message(callback_query: CallbackQuery, state: FSMContext) -> None:
+    await callback_query.answer()
+    await callback_query.message.answer("📢 Iltimos, bot foydalanuvchilariga jo'natiladigan xabar matnini kiriting:",reply_markup=back_keyboard())
+    await state.set_state(Register.every_one)
+    
+BATCH_SIZE = 25
+DELAY = 0.03
+
+@dp.message(StateFilter(Register.every_one))
+async def process_broadcast_message(message: Message, state: FSMContext):
+    text = message.text.strip() if message.text else None
+    if not text:
+        await message.answer("❗️ Iltimos, xabar matnini kiriting.")
+        return
+
+    await message.answer("⏳ Xabar yuborilmoqda...")
+
+    await state.clear()
+    success = 0
+    fail = 0
+
+    users = CustomUser.objects.all().values_list("tg_id", flat=True)
+
+    batch = []
+    for tg_id in users.iterator():
+        batch.append(tg_id)
+
+        if len(batch) >= BATCH_SIZE:
+            for uid in batch:
+                try:
+                    await bot.send_message(uid, f"📢 Botdan umumiy xabar:\n\n{text}")
+                    success += 1
+                    await asyncio.sleep(DELAY)
+                except TelegramForbiddenError:
+                    fail += 1
+                except TelegramRetryAfter as e:
+                    await asyncio.sleep(e.retry_after)
+                except:
+                    fail += 1
+            batch.clear()
+
+    for uid in batch:
+        try:
+            await send_safe_message(uid, f"📢 Botdan umumiy xabar:\n\n{text}")
+            success += 1
+            await asyncio.sleep(DELAY)
+        except:
+            fail += 1
+
+    await message.answer(
+        f"📢 Xabar yuborildi.\n\n✅ Muvaffaqiyatli: {success}\n❌ Muvaffaqiyatsiz: {fail}",
+        reply_markup=admin_keyboard()
+    )

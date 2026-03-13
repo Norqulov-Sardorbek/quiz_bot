@@ -13,7 +13,7 @@ def main_menu_keyboard() -> InlineKeyboardMarkup:
             InlineKeyboardButton(text=" 🔁 Auto quiz yaratish", callback_data="quiz_autocreate"),
         ],
         [
-            InlineKeyboardButton(text=" 📚 Mening quizlarim", callback_data="quiz_my"),
+            InlineKeyboardButton(text=" 📚 Mening quizlarim", callback_data="all_quizzes"),
             InlineKeyboardButton(text=" ❓ Yordam", callback_data="quiz_help"),
         ],
         
@@ -23,10 +23,8 @@ def main_menu_keyboard() -> InlineKeyboardMarkup:
 def admin_keyboard() -> InlineKeyboardMarkup:
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [
-            InlineKeyboardButton(text="📋 Buyurtma raqami bo'yicha qidirish", callback_data="check_order_number"),
-        ],
-        [
-            InlineKeyboardButton(text="📲 Kanalga rasm yuborish", callback_data="send_image_to_channel"),
+            
+             InlineKeyboardButton(text=" 📢 Botga habar jo'natish", callback_data="broadcast_message")
         ]
     ])
     return keyboard
