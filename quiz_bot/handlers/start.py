@@ -1,12 +1,12 @@
 from aiogram import F
-from aiogram.types import Message
 from quiz_bot.dispatcher import dp
-from quiz_bot.handlers.private_quiz_handler import begin_quiz_in_private
 from quiz_bot.state import QuizSearch
 from quiz_bot.buttons.inline import *
 from aiogram.fsm.context import FSMContext
-from aiogram.filters import Command,StateFilter
 from quiz_bot.models import CustomUser,Quizes
+from aiogram.filters import Command,StateFilter
+from aiogram.types import CallbackQuery, Message
+from quiz_bot.handlers.private_quiz_handler import begin_quiz_in_private
 from quiz_bot.handlers.group_quiz_handler import begin_quiz_in_group
 
 
@@ -204,8 +204,9 @@ async def admin_logout(message: Message, state: FSMContext) -> None:
 
 
 @dp.callback_query(F.data == "back")
-async def back_callback(callback_query: Message, state: FSMContext) -> None:
+async def back_callback(callback_query: CallbackQuery, state: FSMContext) -> None:
     tg_id = callback_query.from_user.id
+    await state.clear()
     user = CustomUser.objects.filter(tg_id=tg_id).first()
     if user and user.role == 'admin':
         await callback_query.message.edit_text(text="Admin bosh menyu",reply_markup=admin_keyboard())

@@ -189,7 +189,6 @@ async def start_quiz(chat_id, share_code):
     cleanup_chat(chat_id)
 
     quiz = Quizes.objects.get(share_code=share_code)
-    questions = list(quiz.questions.all().order_by("id"))
     questions = list(quiz.questions.all())
     random.shuffle(questions)
     active_quiz[chat_id] = share_code
@@ -246,11 +245,15 @@ async def send_question_bg(chat_id):
     used = set()
 
     for _, opt in paired:
-        text = (opt or "").strip()[:100]
+        text = (opt or "").strip()
         if not text:
             text = "—"
+
+        text = text[:95]
+
         while text in used:
-            text = (text[:99] + " ") if len(text) >= 99 else (text + " ")
+            text = (text + " ")[:95]
+
         used.add(text)
         new_options.append(text)
 

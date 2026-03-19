@@ -1,14 +1,14 @@
-import asyncio
 import json
-from aiogram.types import Message,CallbackQuery
+import asyncio
 from aiogram import F
-from quiz_bot.dispatcher import dp,bot
 from quiz_bot.buttons.inline import *
-from aiogram.exceptions import TelegramForbiddenError, TelegramRetryAfter
-from quiz_bot.state import UploadQuestion,Register
+from quiz_bot.dispatcher import dp,bot
 from aiogram.fsm.context import FSMContext
+from aiogram.types import Message,CallbackQuery
 from aiogram.filters import Command,StateFilter
+from quiz_bot.state import UploadQuestion,Register
 from quiz_bot.models import CustomUser, QuizQuestion,Quizes
+from aiogram.exceptions import TelegramForbiddenError, TelegramRetryAfter
 
 @dp.message(Command("upload"),StateFilter(None))
 async def start(message: Message, state: FSMContext) -> None:

@@ -152,12 +152,17 @@ async def send_question_bg(chat_id):
     new_options = []
     used = set()
 
+
     for _, opt in paired:
-        text = (opt or "").strip()[:100]
+        text = (opt or "").strip()
         if not text:
             text = "—"
+
+        text = text[:95]
+
         while text in used:
-            text = (text[:99] + " ") if len(text) >= 99 else (text + " ")
+            text = (text + " ")[:95]
+
         used.add(text)
         new_options.append(text)
 
