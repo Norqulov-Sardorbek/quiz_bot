@@ -71,6 +71,14 @@ reply_markup=main_menu_keyboard())
 @dp.callback_query(F.data == "all_quizzes")
 async def all_quizzes_callback(callback_query, state: FSMContext):
     await callback_query.answer()
+    user = CustomUser.objects.filter(tg_id=callback_query.from_user.id).first()
+    if user and user.role != 'admin':
+        await callback_query.message.edit_text(
+            text="Hozircha bu funksiya faqat adminlar uchun mavjud.",
+            reply_markup=main_menu_keyboard()
+        )
+        return
+        
     page = 1
     limit = 5
     offset = (page - 1) * limit
