@@ -23,6 +23,7 @@ def main_menu_keyboard() -> InlineKeyboardMarkup:
 def admin_keyboard() -> InlineKeyboardMarkup:
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [
+            InlineKeyboardButton(text=" 📚 Mening quizlarim", callback_data="all_quizzes"),
             
              InlineKeyboardButton(text=" 📢 Botga habar jo'natish", callback_data="broadcast_message")
         ]
