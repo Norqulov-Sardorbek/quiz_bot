@@ -1,6 +1,7 @@
 import time
 import random
 import asyncio
+import traceback
 from aiogram import F
 from quiz_bot.dispatcher import dp
 from quiz_bot.dispatcher import bot
@@ -372,7 +373,11 @@ async def question_deadline(chat_id, seconds):
         return
 
     # davom etadi
-    await send_question_bg(chat_id)
+    try:
+        await send_question_bg(chat_id)
+    except Exception as e:
+        print(f"[QUESTION_DEADLINE ERROR] chat={chat_id} err={e}")
+        traceback.print_exc()
 
 @dp.callback_query(F.data == "quiz_resume_group")
 async def quiz_resume_callback(callback):
@@ -387,9 +392,11 @@ async def quiz_resume_callback(callback):
     session["no_answer_streak"] = 0
 
     await callback.message.edit_text("▶️ Quiz davom ettirildi!")
-
-    await send_question_bg(chat_id)
-
+    try:
+        await send_question_bg(chat_id)
+    except Exception as e:
+        print(f"[QUIZ_RESUME ERROR] chat={chat_id} err={e}")
+        traceback.print_exc()
 
 
 async def finish_quiz(chat_id):

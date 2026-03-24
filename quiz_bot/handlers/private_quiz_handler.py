@@ -1,7 +1,7 @@
-from operator import index
 import time
 import random
 import asyncio
+import traceback
 from aiogram import F
 from quiz_bot.dispatcher import dp
 from quiz_bot.dispatcher import bot
@@ -10,8 +10,7 @@ from quiz_bot.models import CustomUser, QuizAnswers,Quizes
 from quiz_bot.state import active_quiz, quiz_sessions, deadline_tasks, poll_chat_map, poll_correct_map, quiz_correct, quiz_answered, quiz_start_time, quiz_scores, ready_users,user_info
 
 
-
-
+quiz_locks = {}
 @dp.callback_query(F.data.startswith("quiz_restart_private:"))
 async def quiz_restart_private_callback(callback_query):
     await callback_query.message.edit_reply_markup(None)
@@ -110,103 +109,109 @@ async def start_quiz_private(chat_id, share_code):
     await send_question_bg(chat_id)
 
 async def send_question_bg(chat_id):
-    session = quiz_sessions.get(chat_id)
-    if not session:
-        return
+    lock = quiz_locks.setdefault(chat_id, asyncio.Lock())
+    async with lock:
+        session = quiz_sessions.get(chat_id)
+        if not session:
+            return
 
-    if session.get("paused"):
-        return
+        if session.get("paused"):
+            return
 
-    index = session["index"]
-    questions = session["questions"]
+        index = session["index"]
+        questions = session["questions"]
 
-    if index >= len(questions):
-        await finish_quiz_private(chat_id)
-        return
+        if index >= len(questions):
+            await finish_quiz_private(chat_id)
+            return
 
-    q = questions[index]
-    total = len(questions)
+        q = questions[index]
+        total = len(questions)
 
-    if not q.options or len(q.options) < 2:
-        print("INVALID OPTIONS:", q.options, "question=", q.question)
+        if not q.options or len(q.options) < 2:
+            print("INVALID OPTIONS:", q.options, "question=", q.question)
+            session["index"] += 1
+            try:
+                await send_question_bg(chat_id)
+            except Exception as e:
+                print(f"[SEND_QUESTION_BG ERROR] chat={chat_id} err={e}")
+                traceback.print_exc()
+            return
+
+        if not (0 <= q.correct_index < len(q.options)):
+            print(
+                "INVALID correct_index:",
+                q.correct_index,
+                "options_len=", len(q.options),
+                "question=", q.question
+            )
+            q.correct_index = 0
+
+        poll_question = f"[{index+1}/{total}] {q.question}"
+        session["active_answered"] = False
+
+        paired = list(enumerate(q.options))
+        random.shuffle(paired)
+
+        new_options = []
+        used = set()
+
+
+        for _, opt in paired:
+            text = (opt or "").strip()
+            if not text:
+                text = "—"
+
+            text = text[:95]
+
+            while text in used:
+                text = (text + " ")[:95]
+
+            used.add(text)
+            new_options.append(text)
+
+        new_correct = None
+        for i, (old_i, _) in enumerate(paired):
+            if old_i == q.correct_index:
+                new_correct = i
+                break
+
+        if new_correct is None:
+            new_correct = 0
+
+        session["active_q_index"] = index
+        session["active_correct"] = new_correct
+        session["active_started_at"] = time.time()
+
+        msg = await send_poll_until_ok(
+            chat_id=chat_id,
+            question=poll_question,
+            options=new_options,
+            correct_option_id=new_correct,
+            deadline=session["deadline"],
+            retries=10,
+            timeout=10
+        )
+
+        if not msg:
+            session["paused"] = True
+            await bot.send_message(
+                chat_id,
+                "❌ Poll yuborilmadi (Telegram javob qaytarmadi).\n\n"
+                "▶️ Resume bosing yoki keyinroq urinib ko‘ring.",
+                reply_markup=resume_group_keyboard()
+            )
+            return
+
+        poll_id = msg.poll.id
+        poll_chat_map[poll_id] = chat_id
+        poll_correct_map[poll_id] = new_correct
+
+        deadline_tasks[chat_id] = asyncio.create_task(
+            question_deadline(chat_id, session["deadline"])
+        )
+
         session["index"] += 1
-        await send_question_bg(chat_id)
-        return
-
-    if not (0 <= q.correct_index < len(q.options)):
-        print(
-            "INVALID correct_index:",
-            q.correct_index,
-            "options_len=", len(q.options),
-            "question=", q.question
-        )
-        q.correct_index = 0
-
-    poll_question = f"[{index+1}/{total}] {q.question}"
-    session["active_answered"] = False
-
-    paired = list(enumerate(q.options))
-    random.shuffle(paired)
-
-    new_options = []
-    used = set()
-
-
-    for _, opt in paired:
-        text = (opt or "").strip()
-        if not text:
-            text = "—"
-
-        text = text[:95]
-
-        while text in used:
-            text = (text + " ")[:95]
-
-        used.add(text)
-        new_options.append(text)
-
-    new_correct = None
-    for i, (old_i, _) in enumerate(paired):
-        if old_i == q.correct_index:
-            new_correct = i
-            break
-
-    if new_correct is None:
-        new_correct = 0
-
-    session["active_q_index"] = index
-    session["active_correct"] = new_correct
-    session["active_started_at"] = time.time()
-
-    msg = await send_poll_until_ok(
-        chat_id=chat_id,
-        question=poll_question,
-        options=new_options,
-        correct_option_id=new_correct,
-        deadline=session["deadline"],
-        retries=10,
-        timeout=10
-    )
-
-    if not msg:
-        session["paused"] = True
-        await bot.send_message(
-            chat_id,
-            "❌ Poll yuborilmadi (Telegram javob qaytarmadi).\n\n"
-            "▶️ Resume bosing yoki keyinroq urinib ko‘ring.",
-            reply_markup=resume_group_keyboard()
-        )
-        return
-
-    poll_id = msg.poll.id
-    poll_chat_map[poll_id] = chat_id
-    poll_correct_map[poll_id] = new_correct
-
-    deadline_tasks[chat_id] = asyncio.create_task(
-        question_deadline(chat_id, session["deadline"])
-    )
-
-    session["index"] += 1
 
 
 async def send_poll_until_ok(
@@ -270,7 +275,11 @@ async def question_deadline(chat_id, seconds):
             reply_markup=resume_private_keyboard()
         )
         return
-    await send_question_bg(chat_id)
+    try:
+        await send_question_bg(chat_id)
+    except Exception as e:
+        print(f"[QUESTION_DEADLINE ERROR] chat={chat_id} err={e}")
+        traceback.print_exc()
 
 @dp.callback_query(F.data == "quiz_resume_private")
 async def quiz_resume_callback(callback):
@@ -285,8 +294,11 @@ async def quiz_resume_callback(callback):
     session["no_answer_streak"] = 0
 
     await callback.message.edit_text("▶️ Quiz davom ettirildi!")
-
-    await send_question_bg(chat_id)
+    try:
+        await send_question_bg(chat_id)
+    except Exception as e:
+        print(f"[QUIZ_RESUME ERROR] chat={chat_id} err={e}")
+        traceback.print_exc()
 
 
 
@@ -337,8 +349,11 @@ async def poll_answer_handler(poll_answer):
         old = deadline_tasks.pop(chat_id, None)
         if old:
                 old.cancel()
-        await send_question_bg(chat_id)
-        
+        try:
+            await send_question_bg(chat_id)
+        except Exception as e:
+            print(f"[POLL_ANSWER ERROR] chat={chat_id} err={e}")
+            traceback.print_exc()
 
 
 
