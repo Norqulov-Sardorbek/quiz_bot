@@ -139,6 +139,7 @@ async def send_question_bg(chat_id):
                 traceback.print_exc()
             return
 
+        print(0)
         if not (0 <= q.correct_index < len(q.options)):
             print(
                 "INVALID correct_index:",
@@ -147,6 +148,7 @@ async def send_question_bg(chat_id):
                 "question=", q.question
             )
             q.correct_index = 0
+        print(1)
 
         poll_question = f"[{index+1}/{total}] {q.question}"
         session["active_answered"] = False
@@ -156,7 +158,7 @@ async def send_question_bg(chat_id):
 
         new_options = []
         used = set()
-
+        print(2)
 
         for _, opt in paired:
             text = (opt or "").strip()
@@ -170,6 +172,7 @@ async def send_question_bg(chat_id):
 
             used.add(text)
             new_options.append(text)
+        print(3)
 
         new_correct = None
         for i, (old_i, _) in enumerate(paired):
@@ -179,11 +182,13 @@ async def send_question_bg(chat_id):
 
         if new_correct is None:
             new_correct = 0
+        print(4)
 
         session["active_q_index"] = index
         session["active_correct"] = new_correct
         session["active_started_at"] = time.time()
 
+        print(5)
         msg = await send_poll_until_ok(
             chat_id=chat_id,
             question=poll_question,
@@ -194,6 +199,7 @@ async def send_question_bg(chat_id):
             timeout=10
         )
 
+        print(6)
         if not msg:
             session["paused"] = True
             await bot.send_message(
@@ -203,6 +209,7 @@ async def send_question_bg(chat_id):
                 reply_markup=resume_group_keyboard()
             )
             return
+        print(7)
 
         poll_id = msg.poll.id
         poll_chat_map[poll_id] = chat_id
@@ -210,10 +217,12 @@ async def send_question_bg(chat_id):
         old_task = deadline_tasks.pop(chat_id, None)
         if old_task:
             old_task.cancel()
+        print(8)
         deadline_tasks[chat_id] = asyncio.create_task(
             question_deadline(chat_id, session["deadline"])
         )
 
+        print(9)
         session["index"] += 1
 
 
