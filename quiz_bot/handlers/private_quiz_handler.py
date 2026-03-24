@@ -207,7 +207,9 @@ async def send_question_bg(chat_id):
         poll_id = msg.poll.id
         poll_chat_map[poll_id] = chat_id
         poll_correct_map[poll_id] = new_correct
-
+        old_task = deadline_tasks.pop(chat_id, None)
+        if old_task:
+            old_task.cancel()
         deadline_tasks[chat_id] = asyncio.create_task(
             question_deadline(chat_id, session["deadline"])
         )
@@ -349,7 +351,7 @@ async def poll_answer_handler(poll_answer):
     if chat_id > 0:
         old = deadline_tasks.pop(chat_id, None)
         if old:
-                old.cancel()
+            old.cancel()
         try:
             await send_question_bg(chat_id)
         except Exception as e:
