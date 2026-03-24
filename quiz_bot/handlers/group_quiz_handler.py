@@ -251,8 +251,13 @@ async def send_question_bg(chat_id):
 
         text = text[:95]
 
-        while text in used:
+        attempt = 0
+        while text in used and attempt < 5:
             text = (text + " ")[:95]
+            attempt += 1
+
+        if text in used:
+            text = f"{text[:90]}_{random.randint(1,999)}"
 
         used.add(text)
         new_options.append(text)
