@@ -127,7 +127,6 @@ async def send_question_bg(chat_id):
 
         q = questions[index]
         total = len(questions)
-        print(questions[index+1])
 
         if not q.options or len(q.options) < 2:
             print("INVALID OPTIONS:", q.options, "question=", q.question)
