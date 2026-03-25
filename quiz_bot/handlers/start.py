@@ -72,18 +72,14 @@ reply_markup=main_menu_keyboard())
 async def all_quizzes_callback(callback_query, state: FSMContext):
     await callback_query.answer()
     user = CustomUser.objects.filter(tg_id=callback_query.from_user.id).first()
-    if user and user.role != 'admin':
-        await callback_query.message.edit_text(
-            text="Hozircha bu funksiya faqat adminlar uchun mavjud.",
-            reply_markup=main_menu_keyboard()
-        )
-        return
         
     page = 1
     limit = 5
     offset = (page - 1) * limit
-
-    total = Quizes.objects.count()
+    if user.role == 'admin':
+        total = Quizes.objects.all().count()
+    else:
+        total = Quizes.objects.filter(user_id=user.id).count()
     if total == 0:
         await callback_query.message.edit_text(
             text="Hozircha mavjud bo'lgan viktorinalar yo'q.",
@@ -91,7 +87,10 @@ async def all_quizzes_callback(callback_query, state: FSMContext):
         )
         return
 
-    quizzes = Quizes.objects.all()[offset:offset + limit]
+    if user.role == 'admin':
+        quizzes = Quizes.objects.all()[offset:offset + limit]
+    else:
+        quizzes = Quizes.objects.filter(user_id=user.id)[offset:offset + limit]
     total_pages = (total + limit - 1) // limit
 
     quiz_list = "\n\n".join([
@@ -111,11 +110,16 @@ async def quizzes_page_callback(callback_query, state: FSMContext):
     page = int(callback_query.data.split(":")[1])
     limit = 5
     offset = (page - 1) * limit
-
-    total = Quizes.objects.count()
+    user = CustomUser.objects.filter(tg_id=callback_query.from_user.id).first()
+    if user.role == 'admin':
+        total = Quizes.objects.all().count()
+    else:
+        total = Quizes.objects.filter(user_id=user.id).count()
     total_pages = (total + limit - 1) // limit
-
-    quizzes = Quizes.objects.all()[offset:offset + limit]
+    if user.role == 'admin':
+        quizzes = Quizes.objects.all()[offset:offset + limit]
+    else:
+        quizzes = Quizes.objects.filter(user_id=user.id)[offset:offset + limit]
 
     quiz_list = "\n\n".join([
         f"{offset + i + 1}. 📚 {quiz.title}\n{quiz.description or 'Tavsif mavjud emas'}"
@@ -140,7 +144,8 @@ async def quiz_search_start(callback, state: FSMContext):
 @dp.message(StateFilter(QuizSearch.query))
 async def quiz_search_result(message: Message, state: FSMContext):
     text = message.text
-    quizzes = Quizes.objects.filter(title__icontains=text)
+    user = CustomUser.objects.filter(tg_id=message.from_user.id).first()
+    quizzes = Quizes.objects.filter(title__icontains=text,user_id=user.id)
 
     if not quizzes:
         await message.answer("❌ Hech narsa topilmadi")
@@ -219,5 +224,30 @@ async def back_callback(callback_query: CallbackQuery, state: FSMContext) -> Non
     if user and user.role == 'admin':
         await callback_query.message.edit_text(text="Admin bosh menyu",reply_markup=admin_keyboard())
     else:
-        await callback_query.message.edit_text(text="Asosiy menyu",reply_markup=main_menu_keyboard())
+        await callback_query.message.edit_text(text=
+f"""🎯 Quiz Avto Botga xush kelibsiz, {callback_query.from_user.first_name}
+
+━━━━━━━━━━━━━━━━━━━━
+
+🚀 Imkoniyatlar:
+├ 📝 Fayldan avtomatik test yaratish (DOCX, TXT, PDF)
+├ ✏️ Qo'lda test yaratish
+├ 👥 Guruhda test o'tkazish
+├ 📊 Natijalar va statistika
+└ 🏆 Reyting tizimi
+
+━━━━━━━━━━━━━━━━━━━━
+
+📌 Boshlash uchun:
+• Avtomatik quiz tuzish — DOCX, TXT, PDF fayldan
+• Quiz tuzish — qo'lda yaratish
+• Mening quizlarim — yaratilgan testlar""",reply_markup=main_menu_keyboard())
+
+
     
+
+@dp.callback_query(F.data == "help")
+async def help_callback(callback_query: CallbackQuery, state: FSMContext) -> None:
+    await callback_query.answer()
+    await callback_query.message.edit_text(
+        text="Admin bilan bog'lanish uchun @Sarrdorrbek ga murojaat qiling",reply_markup=main_menu_keyboard())

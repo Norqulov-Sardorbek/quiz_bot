@@ -7,7 +7,6 @@ async def set_bot_commands():
     commands = [
         BotCommand(command="start", description="🚀 Botni ishga tushirish"),
         BotCommand(command="stop", description="🛑 Testni to'xtatish"),
-        BotCommand(command="upload", description="📤 Savol va javoblarni yuklash"),
     ]
     group_commands = [
         BotCommand(command="stop", description="🛑 Testni to'xtatish"),

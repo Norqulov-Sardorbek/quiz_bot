@@ -1,11 +1,6 @@
 from aiogram.fsm.state import StatesGroup, State
 
 
-
-class UploadQuestion(StatesGroup):
-    upload_1 = State()
-    upload_2 = State()
-
 class QuizSearch(StatesGroup):
     query = State()
 
@@ -24,3 +19,9 @@ user_info = {}
 
 class Register(StatesGroup):
     every_one = State()
+    
+class UploadQuestion(StatesGroup):
+    upload_1 = State()  # title
+    upload_2 = State()  # docx
+    upload_3 = State()  # limit
+    upload_4 = State()  # deadline

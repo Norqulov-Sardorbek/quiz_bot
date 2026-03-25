@@ -1,4 +1,3 @@
-import json
 import asyncio
 from aiogram import F
 from quiz_bot.buttons.inline import *
@@ -10,69 +9,201 @@ from quiz_bot.state import UploadQuestion,Register
 from quiz_bot.models import CustomUser, QuizQuestion,Quizes
 from aiogram.exceptions import TelegramForbiddenError, TelegramRetryAfter
 
-@dp.message(Command("upload"),StateFilter(None))
-async def start(message: Message, state: FSMContext) -> None:
-    user = CustomUser.objects.filter(tg_id=message.from_user.id ).first()
-    if not user:
-        await message.answer(text="Siz admin emassiz! Agar Botga savol joylamoqchi bolsangiz, admin bilan bog'laning.")
-        return
-    if user and user.role != 'admin':
-        await message.answer(text="Siz admin emassiz! Agar Botga savol joylamoqchi bolsangiz, admin bilan bog'laning.")
-        return
-    await message.answer(text="Savol va javoblar uchun nom kiriting!",reply_markup=back_keyboard())
+@dp.callback_query(F.data == "autocreate")
+async def quiz_autocreate(callback_query: CallbackQuery, state: FSMContext) -> None:
+    print("quiz_autocreate")
+    await callback_query.message.edit_text(text="📝 Savol va javoblar uchun nom kiriting!",reply_markup=back_keyboard())
     await state.set_state(UploadQuestion.upload_1)
     
 @dp.message(StateFilter(UploadQuestion.upload_1))
 async def upload_quiz_title(message: Message, state: FSMContext) -> None:
     quiz_title = message.text.strip()
-    quiz = Quizes.objects.create(title=quiz_title)
-    await state.update_data(quiz_id=quiz.id)
-    await message.answer("Endi savol va javoblar joylashgan JSON faylni yuboring.",reply_markup=back_keyboard())
+    await state.update_data(quiz_title=quiz_title)
+    await message.answer("📄 Endi savol va javoblar joylashgan DOCX faylni yuboring.",reply_markup=back_keyboard())
     await state.set_state(UploadQuestion.upload_2)
 
 
+
+from docx import Document
+import re
+
+def clean(t):
+    return re.sub(r"\s+", " ", t).strip()
+
+
+def parse_docx(file):
+    doc = Document(file)
+    text = "\n".join(p.text for p in doc.paragraphs)
+
+    question_blocks = re.split(r"\n\+{4,}\n", text)
+
+    questions = []
+    errors = []
+
+    for idx, block in enumerate(question_blocks, start=1):
+        block = block.strip()
+
+        if "====" not in block:
+            continue
+
+        parts = re.split(r"\n\s*=+\s*\n", block)
+
+        if len(parts) < 2:
+            errors.append(f"{idx}-savol: variantlar topilmadi")
+            continue
+
+        question = clean(parts[0])
+        options = []
+        correct_index = None
+
+        for i, opt in enumerate(parts[1:]):
+            opt = clean(opt)
+
+            if not opt:
+                continue
+
+            if "#" in opt:
+                correct_index = i
+
+            opt = opt.replace("#", "").replace("=====", "").strip()
+            options.append(opt)
+
+        # VALIDATION
+        if not question:
+            errors.append(f"{idx}-savol: savol matni bo'sh")
+            continue
+
+        if len(options) < 2:
+            errors.append(f"{idx}-savol: kamida 2 ta variant bo‘lishi kerak")
+            continue
+
+        if correct_index is None:
+            errors.append(f"{idx}-savol: to‘g‘ri javob (#) belgilanmagan")
+            continue
+
+        questions.append({
+            "question": question,
+            "options": options,
+            "correct_index": correct_index
+        })
+
+    return questions, errors
+
+
 @dp.message(StateFilter(UploadQuestion.upload_2))
-async def upload_question(message: Message, state: FSMContext) -> None:
-    if not message.document or not message.document.file_name.endswith(".json"):
-        await message.answer("❌ JSON fayl yuboring")
+async def upload_docx(message: Message, state: FSMContext):
+    if not message.document or not message.document.file_name.endswith(".docx"):
+        await message.answer("❌ Faqat .docx fayl yuboring",reply_markup=back_keyboard())
         return
 
     file = await message.bot.download(message.document)
-    data = await state.get_data()
-    quiz_id = data.get("quiz_id")
 
-    try:
-        data = json.load(file)
-    except Exception:
-        await message.answer("❌ JSON fayl noto‘g‘ri formatda")
+    questions, errors = parse_docx(file)
+
+    if errors:
+        text = "❌ Xatoliklar topildi:\n\n" + "\n".join(errors[:10])
+        await message.answer(text,reply_markup=back_keyboard())
         return
 
-    questions_created = 0
-    for item in data:
-        if (
-            "question" not in item or
-            "options" not in item or
-            "correct_index" not in item
-        ):
-            print("Skipping invalid item:", item)
-            continue
+    if not questions:
+        await message.answer("❌ Umuman savol topilmadi",reply_markup=back_keyboard())
+        return
 
-        if not isinstance(item["options"], list) :
-            continue
-
-        QuizQuestion.objects.create(
-            quiz_id=quiz_id,
-            question=item["question"],
-            options=item["options"],
-            correct_index=item["correct_index"]
-        )
-        questions_created += 1
+    # vaqtinchalik saqlaymiz
+    await state.update_data(
+        parsed_questions=questions
+    )
 
     await message.answer(
-        text=f"✅ {questions_created} ta savol va javob muvaffaqiyatli yuklandi!",
+        f"✅ {len(questions)} ta savol topildi!\n\nSavollar nechtadan guruhlashini xohlaysiz?",
         reply_markup=back_keyboard()
+
     )
+
+    await state.set_state(UploadQuestion.upload_3)
+    
+    
+@dp.message(StateFilter(UploadQuestion.upload_3))
+async def get_limit(message: Message, state: FSMContext):
+    try:
+        limit = int(message.text)
+    except:
+        await message.answer("❌ Raqam kiriting",reply_markup=back_keyboard())
+        return
+
+    data = await state.get_data()
+    await state.update_data(limit=limit)
+
+    await message.answer("Har bir savol uchun vaqt kiriting (sekundda)?",reply_markup=back_keyboard())
+    await state.set_state(UploadQuestion.upload_4)
+    
+    
+@dp.message(StateFilter(UploadQuestion.upload_4))
+async def save_questions(message: Message, state: FSMContext):
+    try:
+        deadline = int(message.text)
+    except:
+        await message.answer("❌ Raqam kiriting",reply_markup=back_keyboard())
+        return
+
+    data = await state.get_data()
+
+    questions = data["parsed_questions"]
+    limit = data["limit"]
+    quiz_title = data["quiz_title"]
+
+    chunks = [
+        questions[i:i + limit]
+        for i in range(0, len(questions), limit)
+    ]
+
+    count = 0
+    user = CustomUser.objects.filter(tg_id=message.from_user.id).first()
+    for idx, chunk in enumerate(chunks, start=1):
+        quiz = Quizes.objects.create(
+            user_id=user.id,
+            title=f"{quiz_title} {idx}-qism",
+            deadline=deadline
+        )
+
+        for q in chunk:
+            QuizQuestion.objects.create(
+                quiz=quiz,
+                question=q["question"],
+                options=q["options"],
+                correct_index=q["correct_index"],
+            )
+            count += 1
+
+    await message.answer(f"✅ {count} ta savol saqlandi!",reply_markup=main_menu_keyboard())
     await state.clear()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 async def send_safe_message(chat_id: int, text: str, **kwargs) -> Message | None:

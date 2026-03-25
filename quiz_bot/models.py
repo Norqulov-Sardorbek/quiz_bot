@@ -20,6 +20,7 @@ class CustomUser(models.Model):
     
     
 class Quizes(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='quizes')
     title = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
     deadline = models.PositiveIntegerField(default=15)  # seconds
